@@ -437,8 +437,43 @@
     [purchasePriceField resignFirstResponder];
     
     
+    // Prepare output string
+    NSMutableString * output = [NSMutableString stringWithString:@"\n"];
+    
+    // turn cash text into an NSDecimalNumber for comparison and precision
+    NSDecimalNumber * cashNumber = [NSDecimalNumber decimalNumberWithDecimal:[NSNumber numberWithFloat:cashTenderedField.text.floatValue].decimalValue];
+    
+    // turn purchase price text into a NSDecimalNumber for comparison and precision
+    NSDecimalNumber * purchasePriceNumber = [NSDecimalNumber decimalNumberWithDecimal:[NSNumber numberWithFloat:purchasePriceField.text.floatValue].decimalValue];
+    
+    // Compare cash to purchase price
+    NSComparisonResult changeResult = [cashNumber compare:purchasePriceNumber];
+    
+    // Check the result
+    switch (changeResult) {
+            // Append 'ZERO' if cash is same as purchase price
+        case NSOrderedSame:
+            [output appendString:@"ZERO\n\n"];
+            break;
+            // subtract purchase price from cash if cash is greater,
+            // then convert the number to strings by calling
+            // changeStringForChange:(NSDecimalNumber*)change
+        case NSOrderedDescending:
+            [output appendFormat:@"%@\n\n", [self changeStringForChange:[cashNumber decimalNumberBySubtracting:purchasePriceNumber]]];  
+            break;
+            // append 'ERROR' if cash is less than purchase price
+        case NSOrderedAscending:
+            [output appendString:@"ERROR\n\n"];
+            break;
+        default:
+            break;
+    }
     
     
+
+    // Display output in text view
+    [outputField setText:output];
+
 
     
     return YES;
