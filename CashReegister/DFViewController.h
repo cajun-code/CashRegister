@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DFViewController : UIViewController <UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *pathField;
+@property (weak, nonatomic) IBOutlet UITextField *purchasePriceField;
 @property (weak, nonatomic) IBOutlet UITextView *outputField;
+@property (weak, nonatomic) IBOutlet UITextField *cashTenderedField;
 
 @end

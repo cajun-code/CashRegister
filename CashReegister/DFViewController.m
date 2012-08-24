@@ -13,8 +13,9 @@
 @end
 
 @implementation DFViewController
-@synthesize pathField;
+@synthesize purchasePriceField;
 @synthesize outputField;
+@synthesize cashTenderedField;
 
 - (void)viewDidLoad
 {
@@ -24,8 +25,9 @@
 
 - (void)viewDidUnload
 {
-    [self setPathField:nil];
+    [self setPurchasePriceField:nil];
     [self setOutputField:nil];
+    [self setCashTenderedField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -384,21 +386,60 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     // Error checking for no value or empty strings in text field
-    if (!textField.text || [textField.text isEqualToString:@""]) {
+    if (!cashTenderedField.text || [cashTenderedField.text isEqualToString:@""]) {
         // Show an alert view to alert the user
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"No Path" message:@"Pleaase enter a file path in the text field." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"No Cash Tendered" message:@"Please enter the cash tendered in the text field." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
         
         // dismiss the keyboard
-        [textField resignFirstResponder];
+        [purchasePriceField resignFirstResponder];
+        [cashTenderedField resignFirstResponder];
+        return YES;
+    }
+    
+    if (!purchasePriceField.text || [purchasePriceField.text isEqualToString:@""]) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"No Purchase Price" message:@"Please enter the purchase price in the text field." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        
+        // dismiss the keyboard
+        [purchasePriceField resignFirstResponder];
+        [cashTenderedField resignFirstResponder];
+
+        return YES;
+    }
+    
+    // error chacking for invalid strings
+    if (purchasePriceField.text.floatValue == 0.0) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Invalid Purchase Price" message:@"Please enter the purchase price in the text field, e.g: 12.43" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        
+        // dismiss the keyboard
+        [purchasePriceField resignFirstResponder];
+        [cashTenderedField resignFirstResponder];
+
+        return YES;
+    }
+    
+    // error checking for invalid strings
+    if (cashTenderedField.text.floatValue == 0.0) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Invalid Cash Tendered" message:@"Please enter the cash in the text field, e.g: 12.43" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        
+        // dismiss the keyboard
+        [cashTenderedField resignFirstResponder];
+        [purchasePriceField resignFirstResponder];
+
         return YES;
     }
     
     // dismiss the keyboard
-    [textField resignFirstResponder];
+    [cashTenderedField resignFirstResponder];
+    [purchasePriceField resignFirstResponder];
     
-    // process the path to get the file
-    [self processInputFileForPath:textField.text];
+    
+    
+    
+
     
     return YES;
 }
