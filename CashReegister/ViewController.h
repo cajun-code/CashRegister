@@ -10,4 +10,12 @@
 
 @interface ViewController : UIViewController
 
+@property (nonatomic, strong)NSString *inputFilePath;
+@property (weak, nonatomic) IBOutlet UITextView *ReturnDenominantsOutput;
+
+- (void)CalculateChange:(NSString*)pInputFilePath;
+
+- (NSMutableDictionary *)CalculateDenominants:(NSInteger)pChangeAmount denominations:(NSArray *)pDenominations;
+- (void)printOutput:(NSMutableArray *)pOutput;
+
 @end

@@ -7,12 +7,21 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    //read the argc value
+    NSArray * arguments = [[NSProcessInfo processInfo] arguments];
+    
+    NSString *lFilePath = [arguments objectAtIndex:1];
+    ViewController *lMainVC = (ViewController*)self.window.rootViewController;
+    lMainVC.inputFilePath = lFilePath;
+    
     return YES;
 }
 							
