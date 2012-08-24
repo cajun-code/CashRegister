@@ -12,14 +12,14 @@
 		4EA04E6515E5212500021A01 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6415E5212500021A01 /* CoreGraphics.framework */; };
 		4EA04E6B15E5212500021A01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EA04E6915E5212500021A01 /* InfoPlist.strings */; };
 		4EA04E6D15E5212500021A01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA04E6C15E5212500021A01 /* main.m */; };
-		4EA04E7115E5212500021A01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA04E7015E5212500021A01 /* AppDelegate.m */; };
-		4EA04E7415E5212500021A01 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EA04E7215E5212500021A01 /* MainStoryboard.storyboard */; };
-		4EA04E7715E5212500021A01 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA04E7615E5212500021A01 /* ViewController.m */; };
 		4EA04E7F15E5212500021A01 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E7E15E5212500021A01 /* SenTestingKit.framework */; };
 		4EA04E8015E5212500021A01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6015E5212500021A01 /* UIKit.framework */; };
 		4EA04E8115E5212500021A01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6215E5212500021A01 /* Foundation.framework */; };
 		4EA04E8915E5212500021A01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EA04E8715E5212500021A01 /* InfoPlist.strings */; };
 		4EA04E8C15E5212500021A01 /* CashReegisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA04E8B15E5212500021A01 /* CashReegisterTests.m */; };
+		7687B2B915E711A300EF745F /* DFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7687B2B515E711A300EF745F /* DFAppDelegate.m */; };
+		7687B2BA15E711A300EF745F /* DFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7687B2B715E711A300EF745F /* DFViewController.m */; };
+		7687B2BB15E711A300EF745F /* DFViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7687B2B815E711A300EF745F /* DFViewController_iPhone.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,17 +41,17 @@
 		4EA04E6A15E5212500021A01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4EA04E6C15E5212500021A01 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4EA04E6E15E5212500021A01 /* CashReegister-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CashReegister-Prefix.pch"; sourceTree = "<group>"; };
-		4EA04E6F15E5212500021A01 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4EA04E7015E5212500021A01 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4EA04E7315E5212500021A01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		4EA04E7515E5212500021A01 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4EA04E7615E5212500021A01 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4EA04E7D15E5212500021A01 /* CashReegisterTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CashReegisterTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA04E7E15E5212500021A01 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		4EA04E8615E5212500021A01 /* CashReegisterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CashReegisterTests-Info.plist"; sourceTree = "<group>"; };
 		4EA04E8815E5212500021A01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4EA04E8A15E5212500021A01 /* CashReegisterTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashReegisterTests.h; sourceTree = "<group>"; };
 		4EA04E8B15E5212500021A01 /* CashReegisterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashReegisterTests.m; sourceTree = "<group>"; };
+		7687B2B415E711A300EF745F /* DFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFAppDelegate.h; sourceTree = "<group>"; };
+		7687B2B515E711A300EF745F /* DFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFAppDelegate.m; sourceTree = "<group>"; };
+		7687B2B615E711A300EF745F /* DFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFViewController.h; sourceTree = "<group>"; };
+		7687B2B715E711A300EF745F /* DFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFViewController.m; sourceTree = "<group>"; };
+		7687B2B815E711A300EF745F /* DFViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DFViewController_iPhone.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,11 +111,11 @@
 		4EA04E6615E5212500021A01 /* CashReegister */ = {
 			isa = PBXGroup;
 			children = (
-				4EA04E6F15E5212500021A01 /* AppDelegate.h */,
-				4EA04E7015E5212500021A01 /* AppDelegate.m */,
-				4EA04E7215E5212500021A01 /* MainStoryboard.storyboard */,
-				4EA04E7515E5212500021A01 /* ViewController.h */,
-				4EA04E7615E5212500021A01 /* ViewController.m */,
+				7687B2B415E711A300EF745F /* DFAppDelegate.h */,
+				7687B2B515E711A300EF745F /* DFAppDelegate.m */,
+				7687B2B615E711A300EF745F /* DFViewController.h */,
+				7687B2B715E711A300EF745F /* DFViewController.m */,
+				7687B2B815E711A300EF745F /* DFViewController_iPhone.xib */,
 				4EA04E6715E5212500021A01 /* Supporting Files */,
 			);
 			path = CashReegister;
@@ -223,7 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EA04E6B15E5212500021A01 /* InfoPlist.strings in Resources */,
-				4EA04E7415E5212500021A01 /* MainStoryboard.storyboard in Resources */,
+				7687B2BB15E711A300EF745F /* DFViewController_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EA04E6D15E5212500021A01 /* main.m in Sources */,
-				4EA04E7115E5212500021A01 /* AppDelegate.m in Sources */,
-				4EA04E7715E5212500021A01 /* ViewController.m in Sources */,
+				7687B2B915E711A300EF745F /* DFAppDelegate.m in Sources */,
+				7687B2BA15E711A300EF745F /* DFViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,14 +289,6 @@
 				4EA04E6A15E5212500021A01 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		4EA04E7215E5212500021A01 /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4EA04E7315E5212500021A01 /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 		4EA04E8715E5212500021A01 /* InfoPlist.strings */ = {
@@ -434,6 +426,7 @@
 				4EA04E9115E5212500021A01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EA04E9215E5212500021A01 /* Build configuration list for PBXNativeTarget "CashReegisterTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +435,7 @@
 				4EA04E9415E5212500021A01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
