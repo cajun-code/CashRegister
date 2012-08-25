@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "DecimalNumberUtils.h"
+
 
 @interface ViewController ()
 
@@ -46,11 +48,10 @@
     
     //read the inputs from the file and calculate the change
     NSError *lError = nil;
-    NSURL *lfileUrl = [NSURL fileURLWithPath:pInputFilePath];
-    //NSString *lInputString = [NSString stringWithContentsOfURL:lfileUrl encoding:NSUTF8StringEncoding error:&lError];
+    NSString *lInputString = [NSString stringWithContentsOfFile:pInputFilePath encoding:NSUTF8StringEncoding error:&lError];
     
     //inputs are hardcoded for testing purpose
-    NSString *lInputString = @"15.94;16.00\n17;16\n35;35\n45;50";
+    //NSString *lInputString = @"15.94;16.00\n17;16\n35;35\n45;50";
     if (nil != lError || 0 >= lInputString.length) {
         return;
     }
@@ -68,54 +69,49 @@
     for (NSString *lInputStr in lInputs)
     {
         NSArray *lPPAndCash = [lInputStr componentsSeparatedByString:@";"];
-        float lPurchasePrice = [[lPPAndCash objectAtIndex:0] floatValue];
-        float lCash = [[lPPAndCash objectAtIndex:1] floatValue];
         
-        if (lPurchasePrice > lCash) {
+        NSDecimalNumber *lPPCashDecimal = [[NSDecimalNumber alloc] initWithString:[lPPAndCash objectAtIndex:0]];
+        
+        NSDecimalNumber *lCashDecimal = [[NSDecimalNumber alloc] initWithString:[lPPAndCash objectAtIndex:1]];
+        //Normal arithmatic operations can not be done on nsdecimalnumbers
+        //So compare method is used for operation lPPCashDecimal > lCashDecimal
+        if ([lPPCashDecimal compare:lCashDecimal] ==  NSOrderedDescending) {
             [lCashOutput addObject:@"ERROR"];
         }
-        else if (lPurchasePrice == lCash)
+        else if ([lPPCashDecimal compare:lCashDecimal] ==  NSOrderedSame)
         {
             [lCashOutput addObject:@"ZERO"];
         }
         else
         {
-            float lChangeFlaotValue = lCash - lPurchasePrice;
-            NSNumber *lChangeValue = [NSNumber numberWithFloat:lChangeFlaotValue];
-            NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-            formatter.positiveFormat = @"00.##";
-            int lDollarVal = [[formatter stringFromNumber:lChangeValue] integerValue];
-            formatter.positiveFormat = @"##.00";
-            NSString *lcentstr = [formatter stringFromNumber:lChangeValue];
-            int lCentVal = [lcentstr floatValue] * 100;
-            lDollarDenominations = [self CalculateDenominants:lDollarVal denominations:lDollars];
+            NSDecimalNumber *lChangeCash = [lCashDecimal decimalNumberBySubtracting:lPPCashDecimal];
+           
+            lDollarDenominations = [self CalculateDenominants:[[lChangeCash dollars] integerValue] denominations:lDollars];
             
-            lCentDenominations = [self CalculateDenominants:lCentVal denominations:lCents];
+            lCentDenominations = [self CalculateDenominants:[[lChangeCash cents] integerValue] denominations:lCents];
         }
-    
-    
-    
-    for (NSString *lDollarKey in lDollarDenominations)
-    {
-        [lCashOutput addObject:[lDenominatesDict objectForKey:lDollarKey]];
-    }
-    
-    for (NSString *lCentKey in lCentDenominations)
-    {
-        int lIntKey = [lCentKey integerValue];
-        //float lFloatKey = lIntKey / 100.0;
-        NSNumber *lFloatkey = [NSNumber numberWithFloat:lIntKey / 100.0];
         
-        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-        formatter.positiveFormat = @"##.00";
-        
-        NSString *lStrCentKey = [formatter stringFromNumber:lFloatkey];
-        [lCashOutput addObject:[lDenominatesDict objectForKey:lStrCentKey]];
-    }
     
-    [self printOutput:lCashOutput];
-        //clear the lCashOutput so that next time it won't print the old values again
+        for (NSString *lDollarKey in lDollarDenominations)
+        {
+            [lCashOutput addObject: [NSString stringWithFormat:@"%@ X %@",[lDenominatesDict objectForKey:lDollarKey], [lDollarDenominations objectForKey:lDollarKey]]];
+        }
+        
+        for (NSString *lCentKey in lCentDenominations)
+        {
+            int lIntKey = [lCentKey integerValue];
+
+            NSDecimalNumber *lCDecimalKey = [[NSDecimalNumber alloc] initWithMantissa:lIntKey exponent:-2 isNegative:NO];
+            NSString *lStrCentKey = [NSString stringWithFormat:@".%@", [lCDecimalKey cents]];
+            
+            [lCashOutput addObject:[NSString stringWithFormat:@"%@ X %@",[lDenominatesDict objectForKey:lStrCentKey], [lCentDenominations objectForKey:lCentKey]]];
+        }
+        
+        [self printOutput:lCashOutput];
+        //clear the lCashOutput, lDollarDenominations, lCentDenominations so that next time it won't print the old values again
         [lCashOutput removeAllObjects];
+        [lDollarDenominations removeAllObjects];
+        [lCentDenominations removeAllObjects];
     
     }
 }
@@ -132,9 +128,6 @@
     }
     
     NSMutableDictionary *lDenominations = [[NSMutableDictionary alloc] init];
-    //    for (int i = 0; i < lNoOfDenominations; i++) {
-    //        [lDenominations addObject:@"0"];
-    //    }
     
     int lAmount = pChangeAmount;
     int i = lNoOfDenominations;
@@ -148,7 +141,6 @@
         {
             [lDenominations setObject:[NSString stringWithFormat:@"%d", lDenom] forKey:[NSString stringWithFormat:@"%d", lDivider]];
         }
-        //[lDenominations replaceObjectAtIndex:i - 1 withObject:[NSString stringWithFormat:@"%d", lDenom]];
         
         i = i - 1;
     }
@@ -168,9 +160,11 @@
     {
         return;
     }
+    
+    NSArray *lSortedOutput = [pOutput sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     NSMutableString *lOutput = [[NSMutableString alloc] init];
     
-    for (NSString *lValue in pOutput)
+    for (NSString *lValue in lSortedOutput)
     {
         [lOutput appendFormat:@"%@,",lValue];
     }
