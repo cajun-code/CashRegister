@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1ADD031715E909D7005AB319 /* DecimalNumberUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADD031615E909D7005AB319 /* DecimalNumberUtils.m */; };
 		4EA04E6115E5212500021A01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6015E5212500021A01 /* UIKit.framework */; };
 		4EA04E6315E5212500021A01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6215E5212500021A01 /* Foundation.framework */; };
 		4EA04E6515E5212500021A01 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6415E5212500021A01 /* CoreGraphics.framework */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1ADD031515E909D7005AB319 /* DecimalNumberUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecimalNumberUtils.h; sourceTree = "<group>"; };
+		1ADD031615E909D7005AB319 /* DecimalNumberUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecimalNumberUtils.m; sourceTree = "<group>"; };
 		4EA04E5C15E5212500021A01 /* CashReegister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashReegister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA04E6015E5212500021A01 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4EA04E6215E5212500021A01 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -117,6 +120,8 @@
 				4EA04E7515E5212500021A01 /* ViewController.h */,
 				4EA04E7615E5212500021A01 /* ViewController.m */,
 				4EA04E6715E5212500021A01 /* Supporting Files */,
+				1ADD031515E909D7005AB319 /* DecimalNumberUtils.h */,
+				1ADD031615E909D7005AB319 /* DecimalNumberUtils.m */,
 			);
 			path = CashReegister;
 			sourceTree = "<group>";
@@ -261,6 +266,7 @@
 				4EA04E6D15E5212500021A01 /* main.m in Sources */,
 				4EA04E7115E5212500021A01 /* AppDelegate.m in Sources */,
 				4EA04E7715E5212500021A01 /* ViewController.m in Sources */,
+				1ADD031715E909D7005AB319 /* DecimalNumberUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +440,7 @@
 				4EA04E9115E5212500021A01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EA04E9215E5212500021A01 /* Build configuration list for PBXNativeTarget "CashReegisterTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +449,7 @@
 				4EA04E9415E5212500021A01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
