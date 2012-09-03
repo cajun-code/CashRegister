@@ -85,11 +85,16 @@
                 }
             }
         }
-        
+        NSMutableArray *keyArray =[[NSMutableArray alloc] init];
+        //Store keys in keyArray for sorting 
         for (NSString *key in result) {
-            NSLog(@"%@:%@", key, [result objectForKey:key]);
+            [keyArray addObject:key];
         }
-        
+        //Sort the array
+        [keyArray sortUsingSelector:@selector(caseInsensitiveCompare:)];
+        for (NSString *key in keyArray) {
+            NSLog(@"%@:%@", key, [result objectForKey:key]);
+        } 
     }
     
     
