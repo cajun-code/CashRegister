@@ -94,6 +94,7 @@
         [keyArray sortUsingSelector:@selector(caseInsensitiveCompare:)];
         for (NSString *key in keyArray) {
             NSLog(@"%@:%@", key, [result objectForKey:key]);
+        //Testing: push project to server 
         } 
     }
     
