@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "CashRegister.h"
 @interface ViewController ()
 
 @end
@@ -18,6 +18,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    CashRegister *cashRegister =[[CashRegister alloc] init];
+    [cashRegister first:1.25 second:11.25];
 }
 
 - (void)viewDidUnload
