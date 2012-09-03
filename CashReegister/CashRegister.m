@@ -15,13 +15,13 @@
      
     if(cash<purchasePrice)
     {
-        resultString=nil;
+      
         [resultString appendString:@"ERROR"];
         return resultString;
     }
     else if(cash==purchasePrice)
     {
-        resultString=nil;
+    
         [resultString appendString:@"ZERO"];
         return resultString;
     }
