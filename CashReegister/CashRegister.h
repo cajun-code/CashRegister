@@ -10,6 +10,6 @@
 
 @interface CashRegister : NSObject
 
--(void)first:(float) purchasePrice second:(float) cash;
+-(NSMutableString *)first:(float) purchasePrice second:(float) cash;
 
 @end

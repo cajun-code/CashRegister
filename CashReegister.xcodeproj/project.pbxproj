@@ -119,8 +119,8 @@
 				4EA04E7215E5212500021A01 /* MainStoryboard.storyboard */,
 				4EA04E7515E5212500021A01 /* ViewController.h */,
 				4EA04E7615E5212500021A01 /* ViewController.m */,
-				F1AB257B15F4634300AAA712 /* CashRegister.m */,
 				F1AB257915F4633300AAA712 /* CashRegister.h */,
+				F1AB257B15F4634300AAA712 /* CashRegister.m */,
 				4EA04E6715E5212500021A01 /* Supporting Files */,
 			);
 			path = CashReegister;
@@ -400,6 +400,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CashReegister/CashReegister-Prefix.pch";
 				INFOPLIST_FILE = "CashReegisterTests/CashReegisterTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -417,6 +418,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CashReegister/CashReegister-Prefix.pch";
 				INFOPLIST_FILE = "CashReegisterTests/CashReegisterTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-
+@property (nonatomic,strong) IBOutlet UITextField *PP;
+@property (nonatomic,strong) IBOutlet UITextField *CH;
+@property (nonatomic,strong) IBOutlet UITextView *resultView;
 @end

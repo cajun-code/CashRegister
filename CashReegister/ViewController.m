@@ -13,6 +13,9 @@
 @end
 
 @implementation ViewController
+@synthesize resultView;
+@synthesize PP;
+@synthesize CH;
 
 - (void)viewDidLoad
 {
@@ -20,7 +23,11 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     CashRegister *cashRegister =[[CashRegister alloc] init];
-    [cashRegister first:1.25 second:9.25];
+    int purchasePrice=0;
+    int cashInHand=0;
+    purchasePrice=[PP.text intValue];
+    cashInHand=[CH.text intValue];
+    //[cashRegister first:purchasePrice second:cashInHand]);
 }
 
 - (void)viewDidUnload

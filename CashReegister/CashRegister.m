@@ -9,16 +9,21 @@
 #import "CashRegister.h"
 
 @implementation CashRegister
--(void)first:(float) purchasePrice second:(float) cash
+-(NSMutableString *)first:(float) purchasePrice second:(float) cash
 {
+    NSMutableString *resultString=[[NSMutableString alloc] init];
      
     if(cash<purchasePrice)
     {
-        NSLog(@"ERROR");
+        resultString=nil;
+        [resultString appendString:@"ERROR"];
+        return resultString;
     }
     else if(cash==purchasePrice)
     {
-        NSLog(@"RETURN O");
+        resultString=nil;
+        [resultString appendString:@"ZERO"];
+        return resultString;
     }
     else {
         //Approach: Get number of each type (dollar....cent) then store them in key and value...
@@ -92,10 +97,14 @@
         }
         //Sort the array
         [keyArray sortUsingSelector:@selector(caseInsensitiveCompare:)];
+  
         for (NSString *key in keyArray) {
-            NSLog(@"%@:%@", key, [result objectForKey:key]);
-        //Testing: push project to server 
+            //NSLog(@"%@:%@", key, [result objectForKey:key]);
+            [resultString appendFormat:@"%@:%@ \n", key, [result objectForKey:key]];
+           
         } 
+       // NSLog(@"%@",resultString);
+        return resultString;
     }
     
     
