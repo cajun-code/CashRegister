@@ -16,17 +16,13 @@
 @synthesize resultView;
 @synthesize PP;
 @synthesize CH;
-
+float purchasePrice=0;
+float cashInHand=0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    CashRegister *cashRegister =[[CashRegister alloc] init];
-    int purchasePrice=0;
-    int cashInHand=0;
-    purchasePrice=[PP.text intValue];
-    cashInHand=[CH.text intValue];
+
     //[cashRegister first:purchasePrice second:cashInHand]);
 }
 
@@ -40,5 +36,18 @@
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
-
+-(IBAction)change:(id)sender
+{
+    purchasePrice=[PP.text floatValue];
+    cashInHand=[CH.text floatValue];
+    CashRegister *cashRegister =[[CashRegister alloc] init];
+   // NSLog(@"This is the number:%f,%f",purchasePrice,cashInHand);
+    [resultView setText:[cashRegister first:purchasePrice second:cashInHand]];
+   // NSLog(@"%@",[cashRegister first:purchasePrice second:cashInHand]);
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    // Any additional checks to ensure you have the correct textField here.
+    [textField resignFirstResponder];
+}
 @end

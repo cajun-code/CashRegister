@@ -29,9 +29,18 @@
         //Approach: Get number of each type (dollar....cent) then store them in key and value...
         //Later we just short by Key...which is (dallor...cent)
         float value=(cash - purchasePrice)*100;
-        int valueInCent=(int)(value);
+        int valueInCent=0;
+        if(value<1.0)
+        {
+            valueInCent=1;
+        }
+        else {
+            valueInCent=(int)value;
+        }
+        
+        
         NSMutableDictionary *result =[[NSMutableDictionary alloc] init];
-        NSArray *array =[[NSArray alloc] initWithObjects:@"100.0",@"50.0",@"25.0",@"10.0",@"5.0",@"2.0",@"1.0",@"0.5",@"0.25",@"0.01",nil];
+        NSArray *array =[[NSArray alloc] initWithObjects:@"100.0",@"50.0",@"25.0",@"10.0",@"5.0",@"2.0",@"1.0",@"0.50",@"0.25",@"0.10",@"0.05",@"0.01",nil];
     
         for (int x=0; x<[array count]; x++) {
             int numberOfCurrentValue=0;
@@ -41,7 +50,7 @@
             if (valueInCent>0) {
             
                 numberOfCurrentValue=(int)(valueInCent/currentValueInt);
-                
+    
                 valueInCent=valueInCent%currentValueInt;
             }
             
