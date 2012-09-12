@@ -8,6 +8,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface CashReegisterTests : SenTestCase
+@interface CashRegisterTests : SenTestCase
 
 @end

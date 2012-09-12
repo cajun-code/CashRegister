@@ -1,14 +1,14 @@
 //
-//  CashReegisterTests.m
-//  CashReegisterTests
+//  CashRegisterTests.m
+//  CashRegisterTests
 //
 //  Created by Allan Davis on 8/22/12.
 //  Copyright (c) 2012 Dealermatch. All rights reserved.
 //
 
-#import "CashReegisterTests.h"
+#import "CashRegisterTests.h"
 
-@implementation CashReegisterTests
+@implementation CashRegisterTests
 
 - (void)setUp
 {
@@ -26,7 +26,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in CashReegisterTests");
+    STFail(@"Unit tests are not implemented yet in CashRegisterTests");
 }
 
 @end
