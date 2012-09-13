@@ -51,7 +51,7 @@
     }
     
     NSMutableString *changeString = [NSMutableString new];
-    while ([change compare:[NSDecimalNumber zero]] != NSOrderedSame)
+    while ([change compare:[NSDecimalNumber zero]] == NSOrderedDescending)
     {
         // this will eventually pull from a set of monetary denominations probably, and will probably try to deliver change based
         // on some heuristic of efficiency and presence of each denomination in the register.  currently the specs don't mention
