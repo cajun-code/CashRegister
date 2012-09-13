@@ -30,7 +30,7 @@
     static NSString *desiredResult = @"ERROR";
     
     NSString *result;
-    result = [ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber maximumDecimalNumber] withCash:[NSDecimalNumber minimumDecimalNumber]];
+    result = [ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber maximumDecimalNumber] withCash:[NSDecimalNumber zero]];
 
     STAssertEqualObjects(result, desiredResult, @"If cash is less than price, Change Dispenser returns 'ERROR.'");
 }
@@ -47,7 +47,27 @@
 
 - (void)testChangeDespenserReturnsChangeString
 {
-    STFail(@"Requesting change for valid prices not yet implemented.");
+    NSString *result;
+
+    result = [ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber zero] withCash:[NSDecimalNumber decimalNumberWithString:@".0199999"]];
+    STAssertEqualObjects(result, @"PENNY", @"ZERO from .01 should result in one penny change");
+    
+    result = [ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber decimalNumberWithString:@".42"] withCash:[NSDecimalNumber decimalNumberWithString:@".50"]];
+    STAssertEqualObjects(result, @"PENNY,PENNY,PENNY,PENNY,PENNY,PENNY,PENNY,PENNY", @".42 from .50 should result in a pennies change.");
 }
 
+- (void)testThrowsErrorOnNegativeAmounts
+{
+    STAssertThrows([ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber minimumDecimalNumber] withCash:[NSDecimalNumber zero]], 
+                   @"Should throw exception if price is negative.");
+
+    STAssertThrows([ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber zero] withCash:[NSDecimalNumber minimumDecimalNumber]], 
+                   @"Should throw exception if price is negative.");
+
+    STAssertThrows([ChangeDispenser dispenseChangeForPrice:nil withCash:[NSDecimalNumber zero]], 
+                   @"Should throw exception if price is negative.");
+
+    STAssertThrows([ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber zero] withCash:nil], 
+                   @"Should throw exception if price is negative.");
+}
 @end
