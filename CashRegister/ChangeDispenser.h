@@ -10,6 +10,6 @@
 
 @interface ChangeDispenser : NSObject
 
-+ (NSString*)dispenseChangeFor:(NSDecimalNumber *)purchasePrice withCash:(NSDecimalNumber *)cash;
++ (NSString*)dispenseChangeForPrice:(NSDecimalNumber *)purchasePrice withCash:(NSDecimalNumber *)cash;
 
 @end

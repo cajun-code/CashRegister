@@ -10,9 +10,27 @@
 
 @implementation ChangeDispenser
 
-+ (NSString *)dispenseChangeFor:(NSDecimalNumber *)purchasePrice withCash:(NSDecimalNumber *)cash
++ (NSString *)dispenseChangeForPrice:(NSDecimalNumber *)purchasePrice withCash:(NSDecimalNumber *)cash
 {
+    static NSString* const ZERO = @"ZERO";
+    static NSString* const ERROR = @"ERROR";
     
+    NSComparisonResult result = [purchasePrice compare:cash];
+    
+    switch (result) {
+        case NSOrderedSame:
+            return ZERO;
+            break;
+            
+        case NSOrderedDescending:
+            return ERROR;
+            break;
+            
+        default:
+            break;
+    }
+    
+    return nil;
 }
 
 @end

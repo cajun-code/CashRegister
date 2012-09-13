@@ -30,9 +30,9 @@
     static NSString *desiredResult = @"ERROR";
     
     NSString *result;
-    result = [ChangeDispenser dispenseChangeFor:[NSDecimalNumber maximumDecimalNumber] withCash:[NSDecimalNumber minimumDecimalNumber]];
+    result = [ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber maximumDecimalNumber] withCash:[NSDecimalNumber minimumDecimalNumber]];
 
-    STAssertEquals(result, desiredResult, @"If cash is less than price, Change Dispenser returns 'ERROR.'");
+    STAssertEqualObjects(result, desiredResult, @"If cash is less than price, Change Dispenser returns 'ERROR.'");
 }
 
 - (void)testChangeDespenserReturnsMagicStringZero
@@ -40,14 +40,14 @@
     static NSString *desiredResult = @"ZERO";
     
     NSString *result;
-    result = [ChangeDispenser dispenseChangeFor:[NSDecimalNumber zero]  withCash:[NSDecimalNumber zero]];
+    result = [ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber zero]  withCash:[NSDecimalNumber zero]];
     
-    STAssertEquals(result, desiredResult, @"If cash is equal to price, Change Dispenser returns 'ZERO.'");
+    STAssertEqualObjects(result, desiredResult, @"If cash is equal to price, Change Dispenser returns 'ZERO.'");
 }
 
 - (void)testChangeDespenserReturnsChangeString
 {
-    
+    STFail(@"Requesting change for valid prices not yet implemented.");
 }
 
 @end
