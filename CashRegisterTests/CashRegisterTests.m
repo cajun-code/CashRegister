@@ -7,6 +7,7 @@
 //
 
 #import "CashRegisterTests.h"
+#import "ChangeDispenser.h"
 
 @implementation CashRegisterTests
 
@@ -24,9 +25,29 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testChangeDespenserReturnsMagicStringError
 {
-    STFail(@"Unit tests are not implemented yet in CashRegisterTests");
+    static NSString *desiredResult = @"ERROR";
+    
+    NSString *result;
+    result = [ChangeDispenser dispenseChangeFor:[NSDecimalNumber maximumDecimalNumber] withCash:[NSDecimalNumber minimumDecimalNumber]];
+
+    STAssertEquals(result, desiredResult, @"If cash is less than price, Change Dispenser returns 'ERROR.'");
+}
+
+- (void)testChangeDespenserReturnsMagicStringZero
+{
+    static NSString *desiredResult = @"ZERO";
+    
+    NSString *result;
+    result = [ChangeDispenser dispenseChangeFor:[NSDecimalNumber zero]  withCash:[NSDecimalNumber zero]];
+    
+    STAssertEquals(result, desiredResult, @"If cash is equal to price, Change Dispenser returns 'ZERO.'");
+}
+
+- (void)testChangeDespenserReturnsChangeString
+{
+    
 }
 
 @end

@@ -13,6 +13,7 @@
 		4EA04E7F15E5212500021A01 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E7E15E5212500021A01 /* SenTestingKit.framework */; };
 		4EA04E8015E5212500021A01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6015E5212500021A01 /* UIKit.framework */; };
 		4EA04E8115E5212500021A01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6215E5212500021A01 /* Foundation.framework */; };
+		E173EE6E1601279100D72C76 /* ChangeDispenser.m in Sources */ = {isa = PBXBuildFile; fileRef = E173EE6D1601279100D72C76 /* ChangeDispenser.m */; };
 		E1B9580F16011BBA00E22D88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B957FF16011BBA00E22D88 /* AppDelegate.m */; };
 		E1B9581216011BBA00E22D88 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1B9580416011BBA00E22D88 /* MainStoryboard.storyboard */; };
 		E1B9581316011BBA00E22D88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B9580616011BBA00E22D88 /* main.m */; };
@@ -37,6 +38,8 @@
 		4EA04E6415E5212500021A01 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4EA04E7D15E5212500021A01 /* CashRegisterTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CashRegisterTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA04E7E15E5212500021A01 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		E173EE6C1601279100D72C76 /* ChangeDispenser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeDispenser.h; sourceTree = "<group>"; };
+		E173EE6D1601279100D72C76 /* ChangeDispenser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeDispenser.m; sourceTree = "<group>"; };
 		E1B957FE16011BBA00E22D88 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E1B957FF16011BBA00E22D88 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E1B9580016011BBA00E22D88 /* CashRegister-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CashRegister-Info.plist"; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				E1B9580616011BBA00E22D88 /* main.m */,
 				E1B9580716011BBA00E22D88 /* ViewController.h */,
 				E1B9580816011BBA00E22D88 /* ViewController.m */,
+				E173EE6C1601279100D72C76 /* ChangeDispenser.h */,
+				E173EE6D1601279100D72C76 /* ChangeDispenser.m */,
 			);
 			path = CashRegister;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				E1B9580F16011BBA00E22D88 /* AppDelegate.m in Sources */,
 				E1B9581316011BBA00E22D88 /* main.m in Sources */,
 				E1B9581416011BBA00E22D88 /* ViewController.m in Sources */,
+				E173EE6E1601279100D72C76 /* ChangeDispenser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
