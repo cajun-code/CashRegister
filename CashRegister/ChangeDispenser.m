@@ -10,7 +10,29 @@
 
 #define IsNegative(number) [number compare:[NSDecimalNumber zero]] == NSOrderedAscending
 
+@interface ChangeDispenser()
+
++(NSArray *)denominations;
++(NSArray *)makeChangeFor:(NSDecimalNumber *)value;
+
+@end
+
 @implementation ChangeDispenser
+
+static NSArray* _denominations;
++(NSArray *)denominations
+{
+    if (_denominations == nil)
+    {
+        NSMutableArray *array = [NSMutableArray new];
+        
+        
+        
+        _denominations = [array copy];
+    }
+    
+    return _denominations;
+}
 
 + (NSString *)dispenseChangeForPrice:(NSDecimalNumber *)purchasePrice withCash:(NSDecimalNumber *)cash
 {
