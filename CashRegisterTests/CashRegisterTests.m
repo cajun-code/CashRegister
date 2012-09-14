@@ -57,6 +57,9 @@
 
     result = [ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber decimalNumberWithString:@".25"] withCash:[NSDecimalNumber decimalNumberWithString:@".50"]];
     STAssertEqualObjects(result, @"QUARTER", @".25 from .50 should result in a quarter change.");
+
+    result = [ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber decimalNumberWithString:@".23"] withCash:[NSDecimalNumber decimalNumberWithString:@".50"]];
+    STAssertEqualObjects(result, @"PENNY,PENNY,QUARTER", @".23 from .50 should result in a quarter and two pennies change.");
 }
 
 - (void)testThrowsErrorOnNegativeAmounts

@@ -26,7 +26,11 @@ static NSArray* _denominations;
     {
         NSMutableArray *array = [NSMutableArray new];
         
-        
+        [array addObject:[Denomination fromName:@"HALF DOLLAR" andStringValue:@".5"]];
+        [array addObject:[Denomination fromName:@"QUARTER" andStringValue:@".25"]];
+        [array addObject:[Denomination fromName:@"DIME" andStringValue:@".1"]];
+        [array addObject:[Denomination fromName:@"NICKEL" andStringValue:@".05"]];
+        [array addObject:[Denomination fromName:@"PENNY" andStringValue:@".01"]];
         
         _denominations = [array copy];
     }
@@ -39,8 +43,6 @@ static NSArray* _denominations;
     static NSString* const ZERO = @"ZERO";
     static NSString* const ERROR = @"ERROR";
 
-    // we could put this somewhere else later if we need to optimize this
-    NSDecimalNumber* penny = [NSDecimalNumber decimalNumberWithString:@".01"];
     NSDecimalNumberHandler *rounder = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundDown 
                                                                                                     scale:2 
                                                                                          raiseOnExactness:NO 
@@ -72,17 +74,27 @@ static NSArray* _denominations;
             break;
     }
     
-    NSMutableString *changeString = [NSMutableString new];
-    while ([change compare:[NSDecimalNumber zero]] == NSOrderedDescending)
-    {
-        // this will eventually pull from a set of monetary denominations probably, and will probably try to deliver change based
-        // on some heuristic of efficiency and presence of each denomination in the register.  currently the specs don't mention
-        // this requirement so we'll just dish out pennies.  we hate pennies anyhow.
-        [changeString appendString:@"PENNY,"];
-        change = [change decimalNumberBySubtracting:penny];
-    } 
+    NSArray *changeArray = [[self class] makeChangeFor:change];
+    return [changeArray componentsJoinedByString:@","];
+}
+
++(NSArray *)makeChangeFor:(NSDecimalNumber *)value
+{
+    NSMutableArray *denominations = [[[self class] denominations] mutableCopy];
+    NSDecimalNumber *change = [value copy];
+    NSMutableArray *result = [NSMutableArray new];
     
-    return [changeString substringToIndex:changeString.length - 1];
+    while (denominations.count > 0 && [change compare:[NSDecimalNumber zero]] == NSOrderedDescending)
+    {
+        while([((Denomination *)[denominations objectAtIndex:0]).value compare:change] == NSOrderedDescending)
+            [denominations removeObjectAtIndex:0];
+        
+        Denomination *currentDenomination = [denominations objectAtIndex:0];
+        [result addObject:currentDenomination.name];
+        change = [change decimalNumberBySubtracting:currentDenomination.value];
+    }
+    
+    return [result copy];
 }
 
 @end
