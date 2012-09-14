@@ -63,6 +63,9 @@
 
     result = [ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber decimalNumberWithString:@"217.12"] withCash:[NSDecimalNumber decimalNumberWithString:@"604.78"]];
     STAssertEqualObjects(result, @"DIME,FIFTY,FIVE,HALF DOLLAR,NICKEL,ONE HUNDRED,ONE HUNDRED,ONE HUNDRED,PENNY,TEN,TWENTY,TWO", @"217.12 from 604.78 should result in something different altogether.");
+
+    result = [ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber zero] withCash:[NSDecimalNumber decimalNumberWithString:@"188.91"]];
+    STAssertEqualObjects(result, @"DIME,FIFTY,FIVE,HALF DOLLAR,NICKEL,ONE,ONE HUNDRED,PENNY,QUARTER,TEN,TWENTY,TWO", @"this test should have one of each denomination in alphabetical order.");
 }
 
 - (void)testThrowsErrorOnNegativeAmounts
