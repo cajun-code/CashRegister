@@ -25,7 +25,7 @@
     [super tearDown];
 }
 
-- (void)testChangeDespenserReturnsMagicStringError
+- (void)testChangeDispenserReturnsMagicStringError
 {
     static NSString *desiredResult = @"ERROR";
     
@@ -35,7 +35,7 @@
     STAssertEqualObjects(result, desiredResult, @"If cash is less than price, Change Dispenser returns 'ERROR.'");
 }
 
-- (void)testChangeDespenserReturnsMagicStringZero
+- (void)testChangeDispenserReturnsMagicStringZero
 {
     static NSString *desiredResult = @"ZERO";
     
@@ -45,7 +45,7 @@
     STAssertEqualObjects(result, desiredResult, @"If cash is equal to price, Change Dispenser returns 'ZERO.'");
 }
 
-- (void)testChangeDespenserReturnsChangeString
+- (void)testChangeDispenserReturnsChangeString
 {
     NSString *result;
 
