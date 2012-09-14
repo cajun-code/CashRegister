@@ -53,7 +53,19 @@
     STAssertEqualObjects(result, @"PENNY", @"ZERO from .01 should result in one penny change");
     
     result = [ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber decimalNumberWithString:@".42"] withCash:[NSDecimalNumber decimalNumberWithString:@".50"]];
-    STAssertEqualObjects(result, @"PENNY,PENNY,PENNY,PENNY,PENNY,PENNY,PENNY,PENNY", @".42 from .50 should result in a pennies change.");
+    STAssertEqualObjects(result, @"NICKEL,PENNY,PENNY,PENNY", @".42 from .50 should result in one nickel and three pennies change.");
+
+    result = [ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber decimalNumberWithString:@".25"] withCash:[NSDecimalNumber decimalNumberWithString:@".50"]];
+    STAssertEqualObjects(result, @"QUARTER", @".25 from .50 should result in a quarter change.");
+
+    result = [ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber decimalNumberWithString:@".23"] withCash:[NSDecimalNumber decimalNumberWithString:@".50"]];
+    STAssertEqualObjects(result, @"PENNY,PENNY,QUARTER", @".23 from .50 should result in a quarter and two pennies change.");
+
+    result = [ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber decimalNumberWithString:@"217.12"] withCash:[NSDecimalNumber decimalNumberWithString:@"604.78"]];
+    STAssertEqualObjects(result, @"DIME,FIFTY,FIVE,HALF DOLLAR,NICKEL,ONE HUNDRED,ONE HUNDRED,ONE HUNDRED,PENNY,TEN,TWENTY,TWO", @"217.12 from 604.78 should result in something different altogether.");
+
+    result = [ChangeDispenser dispenseChangeForPrice:[NSDecimalNumber zero] withCash:[NSDecimalNumber decimalNumberWithString:@"188.91"]];
+    STAssertEqualObjects(result, @"DIME,FIFTY,FIVE,HALF DOLLAR,NICKEL,ONE,ONE HUNDRED,PENNY,QUARTER,TEN,TWENTY,TWO", @"this test should have one of each denomination in alphabetical order.");
 }
 
 - (void)testThrowsErrorOnNegativeAmounts
