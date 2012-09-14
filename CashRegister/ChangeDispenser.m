@@ -26,6 +26,13 @@ static NSArray* _denominations;
     {
         NSMutableArray *array = [NSMutableArray new];
         
+        [array addObject:[Denomination fromName:@"ONE HUNDRED" andStringValue:@"100"]];
+        [array addObject:[Denomination fromName:@"FIFTY" andStringValue:@"50"]];
+        [array addObject:[Denomination fromName:@"TWENTY" andStringValue:@"20"]];
+        [array addObject:[Denomination fromName:@"TEN" andStringValue:@"10"]];
+        [array addObject:[Denomination fromName:@"FIVE" andStringValue:@"5"]];
+        [array addObject:[Denomination fromName:@"TWO" andStringValue:@"2"]];
+        [array addObject:[Denomination fromName:@"ONE" andStringValue:@"1"]];
         [array addObject:[Denomination fromName:@"HALF DOLLAR" andStringValue:@".5"]];
         [array addObject:[Denomination fromName:@"QUARTER" andStringValue:@".25"]];
         [array addObject:[Denomination fromName:@"DIME" andStringValue:@".1"]];
