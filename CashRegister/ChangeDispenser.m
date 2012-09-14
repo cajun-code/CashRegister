@@ -75,7 +75,7 @@ static NSArray* _denominations;
     }
     
     NSArray *changeArray = [[self class] makeChangeFor:change];
-    return [changeArray componentsJoinedByString:@","];
+    return [[changeArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] componentsJoinedByString:@","];
 }
 
 +(NSArray *)makeChangeFor:(NSDecimalNumber *)value
