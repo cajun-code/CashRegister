@@ -67,4 +67,13 @@
     KSTransaction *transaction = [KSCashRegister transactionWithCashHanded:17 andPurchasePrice:16];
     STAssertTrue([expResult isEqualToArray:transaction.output],@"Regular transactions dont work.");    
 }
+
+- (void) testRounding
+{
+    //53 12.56    
+    NSArray *expResult = [NSArray arrayWithObjects:[KSChange dimes:1],[KSChange nickels:1],[KSChange pennies:4],[KSChange quarters:1],[KSChange twenties:2],nil];    
+    KSTransaction *transaction = [KSCashRegister transactionWithCashHanded:53 andPurchasePrice:12.56];
+    STAssertTrue([expResult isEqualToArray:transaction.output],@"Rounding transactions dont work.");    
+}
+
 @end

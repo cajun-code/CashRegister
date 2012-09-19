@@ -58,4 +58,9 @@
 +(KSChange*) nickels:(int)count;
 +(KSChange*) pennies:(int)count;
 
+//For Comparison and testing.
+-(BOOL) isEqual:(KSChange*)other;
+
+
++(NSDecimalNumberHandler*) roundingHandler;
 @end

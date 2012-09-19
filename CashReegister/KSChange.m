@@ -17,16 +17,17 @@
     change.denomination = denomination;
     change.count = count;
     change.value = [[NSDecimalNumber alloc] initWithFloat:value];
+    change.value = [change.value decimalNumberByRoundingAccordingToBehavior:[KSChange roundingHandler]];
     return change;    
 }
 
--(NSDecimalNumber*) adjustBalance:(NSDecimalNumber*)balance
+-(NSString*) description
 {
-    
-    //If the current denomination value is more than it can hold, do not do anything.
-    if ([self.value compare:balance] == NSOrderedDescending) 
-        return [balance copy];        
-    
+    return [NSString stringWithFormat:@"%@ X %d",self.denomination, self.count];
+}
+
++(NSDecimalNumberHandler*)roundingHandler
+{
     //Static number handler to make sure we round down properly the money.
     static NSDecimalNumberHandler *roundDown = nil;    
     static dispatch_once_t onceToken;    
@@ -39,7 +40,16 @@
                                                              raiseOnDivideByZero:NO];
         
     });
+    return roundDown;    
+}
+-(NSDecimalNumber*) adjustBalance:(NSDecimalNumber*)balance
+{
     
+    //If the current denomination value is more than it can hold, do not do anything.
+    if ([self.value compare:balance] == NSOrderedDescending) 
+        return [balance copy];        
+    
+    NSDecimalNumberHandler *roundDown = [KSChange roundingHandler];
     //How many of the current denominations can be subtracted?
     int cCount = [[balance decimalNumberByDividingBy:self.value withBehavior:roundDown] intValue];
     
@@ -53,6 +63,10 @@
     return adjBal;
 }
 
+-(BOOL) isEqual:(KSChange*)other
+{
+    return [self.denomination isEqualToString:other.denomination] && self.count == other.count && [self.value isEqualToNumber:other.value];    
+}
 
 +(KSChange*) zeroChange
 {
@@ -107,7 +121,7 @@
 
 +(KSChange*) quarters:(int)count
 {
-    return [KSChange changeForDenomination:kHalfDollarsDenomination andCount:count havingValue:0.25f];
+    return [KSChange changeForDenomination:kQuartersDenomination andCount:count havingValue:0.25f];
 }
 
 +(KSChange*) dimes:(int)count

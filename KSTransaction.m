@@ -26,18 +26,26 @@
 
 -(NSArray*) output
 {
+    if(self.change.count == 0)
+        @throw [NSException exceptionWithName:@"MSInvalidStateException" reason:@"The transaction must run before printing user freidnly output" userInfo:nil];
+    
+    [self.change sortUsingComparator:^NSComparisonResult(KSChange *obj1, KSChange *obj2) {
+        return [obj1.denomination compare:obj2.denomination];
+    }];
+    
     return [self.change copy];
 }
-
 -(BOOL) ringTransaction
 {
+ 
+    NSDecimalNumber *mch = [self.cashHanded decimalNumberByRoundingAccordingToBehavior:[KSChange roundingHandler]];
+    NSDecimalNumber *mpp = [self.purchasePrice decimalNumberByRoundingAccordingToBehavior:[KSChange roundingHandler]];
+    
+    self.cashHanded = mch;
+    self.purchasePrice = mpp;
+    
     //Compute Balance.
-    self.tBalance = [self.cashHanded decimalNumberBySubtracting:self.purchasePrice withBehavior:[NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundBankers
-                                                                                                                                                       scale:2
-                                                                                                                                            raiseOnExactness:NO
-                                                                                                                                             raiseOnOverflow:NO
-                                                                                                                                            raiseOnUnderflow:NO
-                                                                                                                                         raiseOnDivideByZero:NO]];
+    self.tBalance = [self.cashHanded decimalNumberBySubtracting:self.purchasePrice withBehavior:[KSChange roundingHandler]];
     
 
     if(self.balance.doubleValue < 0)
