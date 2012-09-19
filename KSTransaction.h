@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#define TRANSACTION_ERROR [NSDecimalNumber notANumber]
 @interface KSTransaction : NSObject
 //Purchase price for the customer.
 @property(nonatomic, strong) NSDecimalNumber *purchasePrice;
