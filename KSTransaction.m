@@ -8,11 +8,29 @@
 
 #import "KSTransaction.h"
 
+@interface KSTransaction()
+@property(nonatomic, strong) NSDecimalNumber *tBalance;
+@property(nonatomic, strong) NSMutableArray *change;
+
+@end
+
 @implementation KSTransaction
-@synthesize purchasePrice, cashHanded, balance;
+@synthesize purchasePrice, cashHanded, tBalance, change;
+
+
+-(NSDecimalNumber*)balance
+{
+    return [self.tBalance copy];
+}
+
+-(NSArray*) output
+{
+    return [self.change copy];
+}
 
 -(BOOL) ringTransaction
 {
+    return NO;
     
 }
 @end

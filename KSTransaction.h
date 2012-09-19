@@ -15,10 +15,11 @@
 //Cash handed by the customer.
 @property(nonatomic, strong) NSDecimalNumber *cashHanded;
 
-//Balace/change should be returned to the customer.
-@property(nonatomic, strong) NSDecimalNumber *balance;
+//Balance or change should be returned to the customer.
+@property(nonatomic, readonly) NSDecimalNumber *balance;
 
-
+//Actual output of the Transaction.
+@property(nonatomic, readonly) NSArray *output;
 //Run the Transaction with the given input.
 -(BOOL) ringTransaction;
 @end
