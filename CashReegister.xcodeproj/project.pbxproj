@@ -15,6 +15,16 @@
 		036ACA74160A512B0006D709 /* KSChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 036ACA72160A512B0006D709 /* KSChange.m */; };
 		036ACA79160A681C0006D709 /* TxnResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036ACA78160A681C0006D709 /* TxnResultViewController.m */; };
 		036ACA7A160A681C0006D709 /* TxnResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036ACA78160A681C0006D709 /* TxnResultViewController.m */; };
+		036ACA81160A73B20006D709 /* DIGITAL.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 036ACA7C160A73B20006D709 /* DIGITAL.TXT */; };
+		036ACA82160A73B20006D709 /* DIGITAL.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 036ACA7C160A73B20006D709 /* DIGITAL.TXT */; };
+		036ACA83160A73B20006D709 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 036ACA7D160A73B20006D709 /* DS-DIGI.TTF */; };
+		036ACA84160A73B20006D709 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 036ACA7D160A73B20006D709 /* DS-DIGI.TTF */; };
+		036ACA85160A73B20006D709 /* DS-DIGIB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 036ACA7E160A73B20006D709 /* DS-DIGIB.TTF */; };
+		036ACA86160A73B20006D709 /* DS-DIGIB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 036ACA7E160A73B20006D709 /* DS-DIGIB.TTF */; };
+		036ACA87160A73B20006D709 /* DS-DIGII.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 036ACA7F160A73B20006D709 /* DS-DIGII.TTF */; };
+		036ACA88160A73B20006D709 /* DS-DIGII.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 036ACA7F160A73B20006D709 /* DS-DIGII.TTF */; };
+		036ACA89160A73B20006D709 /* DS-DIGIT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 036ACA80160A73B20006D709 /* DS-DIGIT.TTF */; };
+		036ACA8A160A73B20006D709 /* DS-DIGIT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 036ACA80160A73B20006D709 /* DS-DIGIT.TTF */; };
 		4EA04E6115E5212500021A01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6015E5212500021A01 /* UIKit.framework */; };
 		4EA04E6315E5212500021A01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6215E5212500021A01 /* Foundation.framework */; };
 		4EA04E6515E5212500021A01 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6415E5212500021A01 /* CoreGraphics.framework */; };
@@ -49,6 +59,11 @@
 		036ACA72160A512B0006D709 /* KSChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSChange.m; sourceTree = "<group>"; };
 		036ACA77160A681C0006D709 /* TxnResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TxnResultViewController.h; sourceTree = "<group>"; };
 		036ACA78160A681C0006D709 /* TxnResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TxnResultViewController.m; sourceTree = "<group>"; };
+		036ACA7C160A73B20006D709 /* DIGITAL.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DIGITAL.TXT; sourceTree = "<group>"; };
+		036ACA7D160A73B20006D709 /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGI.TTF"; sourceTree = "<group>"; };
+		036ACA7E160A73B20006D709 /* DS-DIGIB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGIB.TTF"; sourceTree = "<group>"; };
+		036ACA7F160A73B20006D709 /* DS-DIGII.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGII.TTF"; sourceTree = "<group>"; };
+		036ACA80160A73B20006D709 /* DS-DIGIT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGIT.TTF"; sourceTree = "<group>"; };
 		4EA04E5C15E5212500021A01 /* CashReegister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashReegister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA04E6015E5212500021A01 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4EA04E6215E5212500021A01 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -118,6 +133,18 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		036ACA7B160A739F0006D709 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				036ACA7C160A73B20006D709 /* DIGITAL.TXT */,
+				036ACA7D160A73B20006D709 /* DS-DIGI.TTF */,
+				036ACA7E160A73B20006D709 /* DS-DIGIB.TTF */,
+				036ACA7F160A73B20006D709 /* DS-DIGII.TTF */,
+				036ACA80160A73B20006D709 /* DS-DIGIT.TTF */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		4EA04E5115E5212500021A01 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +178,7 @@
 		4EA04E6615E5212500021A01 /* CashReegister */ = {
 			isa = PBXGroup;
 			children = (
+				036ACA7B160A739F0006D709 /* Fonts */,
 				036ACA76160A61F40006D709 /* ViewControllers */,
 				036ACA75160A60240006D709 /* Models */,
 				4EA04E6F15E5212500021A01 /* AppDelegate.h */,
@@ -264,6 +292,11 @@
 			files = (
 				4EA04E6B15E5212500021A01 /* InfoPlist.strings in Resources */,
 				4EA04E7415E5212500021A01 /* MainStoryboard.storyboard in Resources */,
+				036ACA81160A73B20006D709 /* DIGITAL.TXT in Resources */,
+				036ACA83160A73B20006D709 /* DS-DIGI.TTF in Resources */,
+				036ACA85160A73B20006D709 /* DS-DIGIB.TTF in Resources */,
+				036ACA87160A73B20006D709 /* DS-DIGII.TTF in Resources */,
+				036ACA89160A73B20006D709 /* DS-DIGIT.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +305,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EA04E8915E5212500021A01 /* InfoPlist.strings in Resources */,
+				036ACA82160A73B20006D709 /* DIGITAL.TXT in Resources */,
+				036ACA84160A73B20006D709 /* DS-DIGI.TTF in Resources */,
+				036ACA86160A73B20006D709 /* DS-DIGIB.TTF in Resources */,
+				036ACA88160A73B20006D709 /* DS-DIGII.TTF in Resources */,
+				036ACA8A160A73B20006D709 /* DS-DIGIT.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

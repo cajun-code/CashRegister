@@ -32,10 +32,12 @@
     self.purchasePrice.textColor = self.cashHanded.textColor = [UIColor greenColor];
     self.purchasePrice.delegate = self.cashHanded.delegate = self;
     
+    
+    UIFont *fnt = [UIFont fontWithName:@"DS-Digital-Bold" size:50];
+    self.purchasePrice.font = self.cashHanded.font = fnt;
+    
     static NSNumberFormatter *format = nil;
-    
     static dispatch_once_t onceToken;
-    
     dispatch_once(&onceToken, ^{
         format = [[NSNumberFormatter alloc] init]; 
         [format setNumberStyle:NSNumberFormatterCurrencyStyle]; 
