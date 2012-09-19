@@ -13,6 +13,8 @@
 		036ACA70160A4E480006D709 /* KSTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 036ACA6E160A4E480006D709 /* KSTransaction.m */; };
 		036ACA73160A512B0006D709 /* KSChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 036ACA72160A512B0006D709 /* KSChange.m */; };
 		036ACA74160A512B0006D709 /* KSChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 036ACA72160A512B0006D709 /* KSChange.m */; };
+		036ACA79160A681C0006D709 /* TxnResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036ACA78160A681C0006D709 /* TxnResultViewController.m */; };
+		036ACA7A160A681C0006D709 /* TxnResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036ACA78160A681C0006D709 /* TxnResultViewController.m */; };
 		4EA04E6115E5212500021A01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6015E5212500021A01 /* UIKit.framework */; };
 		4EA04E6315E5212500021A01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6215E5212500021A01 /* Foundation.framework */; };
 		4EA04E6515E5212500021A01 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6415E5212500021A01 /* CoreGraphics.framework */; };
@@ -45,6 +47,8 @@
 		036ACA6E160A4E480006D709 /* KSTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSTransaction.m; path = ../KSTransaction.m; sourceTree = "<group>"; };
 		036ACA71160A512B0006D709 /* KSChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSChange.h; sourceTree = "<group>"; };
 		036ACA72160A512B0006D709 /* KSChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSChange.m; sourceTree = "<group>"; };
+		036ACA77160A681C0006D709 /* TxnResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TxnResultViewController.h; sourceTree = "<group>"; };
+		036ACA78160A681C0006D709 /* TxnResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TxnResultViewController.m; sourceTree = "<group>"; };
 		4EA04E5C15E5212500021A01 /* CashReegister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashReegister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA04E6015E5212500021A01 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4EA04E6215E5212500021A01 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -108,6 +112,8 @@
 			children = (
 				4EA04E7515E5212500021A01 /* ViewController.h */,
 				4EA04E7615E5212500021A01 /* ViewController.m */,
+				036ACA77160A681C0006D709 /* TxnResultViewController.h */,
+				036ACA78160A681C0006D709 /* TxnResultViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -298,6 +304,7 @@
 				036ACA6A160A4E2B0006D709 /* KSCashRegister.m in Sources */,
 				036ACA6F160A4E480006D709 /* KSTransaction.m in Sources */,
 				036ACA73160A512B0006D709 /* KSChange.m in Sources */,
+				036ACA79160A681C0006D709 /* TxnResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +316,7 @@
 				036ACA6B160A4E2B0006D709 /* KSCashRegister.m in Sources */,
 				036ACA70160A4E480006D709 /* KSTransaction.m in Sources */,
 				036ACA74160A512B0006D709 /* KSChange.m in Sources */,
+				036ACA7A160A681C0006D709 /* TxnResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "KSTransaction.h"
 #import "KSCashRegister.h"
-
+#import "TxnResultViewController.h"
 @interface ViewController ()<UITextFieldDelegate>
 @property(nonatomic, retain) NSNumberFormatter *formatter;
 @property(nonatomic, retain) KSTransaction *transaction;
@@ -67,7 +67,14 @@
 {
     return (UIInterfaceOrientationIsPortrait(interfaceOrientation));
 }
-
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"showResult"])
+    {
+        TxnResultViewController *destination = segue.destinationViewController;
+        destination.transaction = self.transaction;
+    }
+}
 #pragma mark -Helper Methods.
 -(void) updateLabels
 {
@@ -104,6 +111,7 @@
         else 
         {
             self.transaction = txn;
+            [self performSegueWithIdentifier:@"showResult" sender:self];
             NSLog(@"%@",txn.output);
         }
     }
