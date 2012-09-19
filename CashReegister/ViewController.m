@@ -10,7 +10,7 @@
 #import "KSTransaction.h"
 #import "KSCashRegister.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITextFieldDelegate>
 @property(nonatomic, retain) NSNumberFormatter *formatter;
 @property(nonatomic, retain) KSTransaction *transaction;
 @end
@@ -28,6 +28,21 @@
     self.title = @"Cash Register";    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.purchasePrice.textColor = self.cashHanded.textColor = [UIColor greenColor];
+    self.purchasePrice.delegate = self.cashHanded.delegate = self;
+    
+    static NSNumberFormatter *format = nil;
+    
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        format = [[NSNumberFormatter alloc] init]; 
+        [format setNumberStyle:NSNumberFormatterCurrencyStyle]; 
+    });
+    
+    self.formatter = format;
+    
 }
 
 - (void)viewDidUnload
