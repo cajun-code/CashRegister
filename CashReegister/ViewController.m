@@ -41,6 +41,7 @@
         [format setNumberStyle:NSNumberFormatterCurrencyStyle]; 
     });
     
+    
     self.formatter = format;
     
 }

@@ -7,6 +7,7 @@
 //
 
 #import "TxnResultViewController.h"
+#import "KSChange.h"
 
 @interface TxnResultViewController ()
 
@@ -62,24 +63,82 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.transaction.output.count + 4;
+    if(section == 0)
+        return 3;
+    else 
+        return self.transaction.output.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"cell1";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell.textLabel.text = @"Dummy";
+    
+    static NSNumberFormatter *format = nil;
+    
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        format = [[NSNumberFormatter alloc] init]; 
+        [format setNumberStyle:NSNumberFormatterCurrencyStyle]; 
+    });
+    
+    static NSString *CellIdentifier1 = @"cell1";
+    static NSString *CellIdentifier2 = @"cell2";
+    
+    UITableViewCell *cell = nil;
+    
+    if(indexPath.section == 0)
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
+        switch (indexPath.row) {
+            case 0:                
+                cell.textLabel.text = @"Cash Handed";
+                cell.detailTextLabel.text = [format stringFromNumber:self.transaction.cashHanded];
+                cell.detailTextLabel.textColor = [UIColor colorWithRed:0.03 green:0.45 blue:0.02 alpha:1];
+                break;
+            case 1:                
+                cell.textLabel.text = @"Purchase Price";             
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"-   %@", [format stringFromNumber:self.transaction.purchasePrice]];
+                cell.detailTextLabel.textColor = [UIColor colorWithRed:0.45 green:0.03 blue:0.02 alpha:1];                
+                break;
+            case 2:   
+                cell.textLabel.text = @"Change Due";                
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"=   %@", [format stringFromNumber:self.transaction.balance]];
+                cell.detailTextLabel.textColor = [UIColor colorWithRed:0.03 green:0.03 blue:0.45 alpha:1];                                
+                break;
+            case 3:                
+                cell.textLabel.text = @"";                                
+                cell.detailTextLabel.text = @"";
+                break;                
+        }
+    }
+    else 
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier2];
+        KSChange *change = [self.transaction.output objectAtIndex:indexPath.row];
+        cell.textLabel.text = change.denomination;
+        cell.textLabel.numberOfLines = 2;
+        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+        
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",change.count];
+    }
+    
     // Configure the cell...
     
     return cell;
 }
-
+-(NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if(section == 0)
+        return @"Details";
+    else {
+        return @"Change";
+    }
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
