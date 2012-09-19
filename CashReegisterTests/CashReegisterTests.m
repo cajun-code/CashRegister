@@ -24,9 +24,27 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void) testZero
 {
-    STFail(@"Unit tests are not implemented yet in CashReegisterTests");
+    //35 35
 }
 
+- (void) testError
+{
+    //45 50
+}
+
+-(void) testMutliple
+{
+}
+
+- (void) testTransaction
+{
+    //15.94 16.00
+}
+
+- (void) testTransaction2
+{
+    //17 16
+}
 @end
