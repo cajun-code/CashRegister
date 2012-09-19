@@ -90,6 +90,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		036ACA75160A60240006D709 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				036ACA6D160A4E480006D709 /* KSTransaction.h */,
+				036ACA6E160A4E480006D709 /* KSTransaction.m */,
+				036ACA68160A4E2B0006D709 /* KSCashRegister.h */,
+				036ACA69160A4E2B0006D709 /* KSCashRegister.m */,
+				036ACA71160A512B0006D709 /* KSChange.h */,
+				036ACA72160A512B0006D709 /* KSChange.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		036ACA76160A61F40006D709 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4EA04E7515E5212500021A01 /* ViewController.h */,
+				4EA04E7615E5212500021A01 /* ViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		4EA04E5115E5212500021A01 = {
 			isa = PBXGroup;
 			children = (
@@ -123,17 +145,11 @@
 		4EA04E6615E5212500021A01 /* CashReegister */ = {
 			isa = PBXGroup;
 			children = (
-				036ACA6D160A4E480006D709 /* KSTransaction.h */,
-				036ACA6E160A4E480006D709 /* KSTransaction.m */,
-				036ACA68160A4E2B0006D709 /* KSCashRegister.h */,
-				036ACA69160A4E2B0006D709 /* KSCashRegister.m */,
-				036ACA71160A512B0006D709 /* KSChange.h */,
-				036ACA72160A512B0006D709 /* KSChange.m */,
+				036ACA76160A61F40006D709 /* ViewControllers */,
+				036ACA75160A60240006D709 /* Models */,
 				4EA04E6F15E5212500021A01 /* AppDelegate.h */,
 				4EA04E7015E5212500021A01 /* AppDelegate.m */,
 				4EA04E7215E5212500021A01 /* MainStoryboard.storyboard */,
-				4EA04E7515E5212500021A01 /* ViewController.h */,
-				4EA04E7615E5212500021A01 /* ViewController.m */,
 				4EA04E6715E5212500021A01 /* Supporting Files */,
 			);
 			path = CashReegister;

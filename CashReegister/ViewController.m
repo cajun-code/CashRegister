@@ -13,6 +13,10 @@
 @end
 
 @implementation ViewController
+@synthesize purchasePrice;
+@synthesize cashHanded;
+@synthesize purchasePriceLabel;
+@synthesize cashHandedLabel;
 
 - (void)viewDidLoad
 {
@@ -22,13 +26,23 @@
 
 - (void)viewDidUnload
 {
+    [self setPurchasePrice:nil];
+    [self setCashHanded:nil];
+    [self setPurchasePriceLabel:nil];
+    [self setCashHandedLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return (UIInterfaceOrientationIsPortrait(interfaceOrientation));
+}
+
+#pragma mark - Interface Builder Actions
+- (IBAction)runTransaction:(id)sender 
+{
+    
 }
 
 @end
