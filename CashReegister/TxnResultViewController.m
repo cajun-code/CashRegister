@@ -63,11 +63,18 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
+    if([self.transaction isError])
+       return 1;
+       
     return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if([self.transaction isError])
+        return 1;
+
+    
     if(section == 0)
         return 3;
     else 
@@ -88,8 +95,17 @@
     
     static NSString *CellIdentifier1 = @"cell1";
     static NSString *CellIdentifier2 = @"cell2";
+    static NSString *CellIdentifier3 = @"cell3";    
     
     UITableViewCell *cell = nil;
+    
+    if([self.transaction isError])
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier3];
+        cell.textLabel.textColor =[UIColor redColor];
+        cell.textLabel.text = @"ERROR";
+        return cell;
+    }    
     
     if(indexPath.section == 0)
     {
@@ -123,8 +139,10 @@
         cell.textLabel.text = change.denomination;
         cell.textLabel.numberOfLines = 2;
         cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-        
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",change.count];
+        if(change.count != 0)
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",change.count];
+        else
+            cell.detailTextLabel.text = @"";
     }
     
     // Configure the cell...

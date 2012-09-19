@@ -85,7 +85,13 @@
     }
     
     self.change = output;    
-    return NO;
+    return [self.tBalance isEqualToNumber:TRANSACTION_ERROR];
     
 }
+
+-(BOOL) isError
+{
+    return [self.tBalance isEqualToNumber:TRANSACTION_ERROR];
+}
+
 @end

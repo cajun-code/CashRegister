@@ -22,4 +22,6 @@
 @property(nonatomic, readonly) NSArray *output;
 //Run the Transaction with the given input.
 -(BOOL) ringTransaction;
+
+-(BOOL) isError;
 @end
