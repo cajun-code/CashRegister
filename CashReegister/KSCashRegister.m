@@ -28,4 +28,13 @@
     [denominations addObject:[KSChange pennies:0]];
     return [denominations copy];
 }
+
++(KSTransaction*) transactionWithCashHanded:(float) cashHanded andPurchasePrice:(float)purchasePrice
+{
+    KSTransaction *transaction = [[KSTransaction alloc] init];
+    transaction.cashHanded = [[NSDecimalNumber alloc] initWithFloat:cashHanded];
+    transaction.purchasePrice =  [[NSDecimalNumber alloc] initWithFloat:purchasePrice];
+    [transaction ringTransaction];
+    return transaction;
+}
 @end

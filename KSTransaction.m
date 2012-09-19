@@ -50,7 +50,7 @@
     
     if([self.tBalance isEqualToNumber:TRANSACTION_ERROR])
         [output addObject:[KSChange error]];
-    else if([self.tBalance isEqualToValue:0])
+    else if([self.tBalance isEqualToValue:[[NSDecimalNumber alloc] initWithFloat:0.f]])
         [output addObject:[KSChange zeroChange]];
     else 
     {

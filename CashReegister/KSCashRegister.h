@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KSTransaction.h"
 
 @interface KSCashRegister : NSObject
 
 //Return what are the denominations available with in this cash register.
 +(NSArray*) availableDenominations;
-
++(KSTransaction*) transactionWithCashHanded:(float) cashHanded andPurchasePrice:(float)purchasePrice;
 @end
