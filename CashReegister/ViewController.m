@@ -68,6 +68,13 @@
     return (UIInterfaceOrientationIsPortrait(interfaceOrientation));
 }
 
+#pragma mark -Helper Methods.
+-(void) updateLabels
+{
+    purchasePriceLabel.hidden = self.purchasePrice.text.length == 0;
+    cashHandedLabel.hidden = self.cashHanded.text.length == 0;
+}
+
 #pragma mark - Interface Builder Actions
 - (IBAction)runTransaction:(id)sender 
 {
@@ -103,8 +110,68 @@
     @catch (NSException *exception) 
     {
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Error running your transaction. Please check check the input and try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
+    }    
+}
+
+#pragma mark - UITextFieldDelegate Methods.
+- (BOOL)textField:(UITextField *)sender shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSCharacterSet *set = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789."] invertedSet];
+    
+    NSString *finalString =[sender.text stringByReplacingCharactersInRange:range withString:string];
+ 
+    //Make sure that the input contains valid characetrs only.
+    if ([finalString rangeOfCharacterFromSet:set].location != NSNotFound) 
+        return NO;
+    
+    NSArray *comps = [finalString componentsSeparatedByString:@"."];
+    
+    //Dont allow user enterning more than one decimal 
+    if (comps.count > 2) 
+        return NO;
+    
+    if(comps.count == 2)
+    {
+        NSString *decimal  = [comps objectAtIndex:1];
+        if (decimal.length > 2)
+            return NO;
     }
     
+    //Otherwise go ahead.
+    
+    return YES;    
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)sender
+{
+    //Update the show/hide labels based upon the inputs.
+    [self updateLabels];    
+    
+    if (sender.text.length == 0)
+        return;
+    
+    
+    //Format to currency.
+    NSNumber *num = [self.formatter numberFromString:sender.text];
+    
+    if(!num)
+        num = [NSNumber numberWithDouble:[sender.text doubleValue]];
+    
+    NSString *str = [self.formatter stringFromNumber:num];
+    sender.text = str;
+    
+    
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    //Handle next and done buttons.
+    if (textField == self.purchasePrice) 
+        [self.cashHanded becomeFirstResponder];
+    
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 @end
