@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *purchasePrice;
+@property (weak, nonatomic) IBOutlet UITextField *cashHanded;
+@property (weak, nonatomic) IBOutlet UILabel *purchasePriceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cashHandedLabel;
 
 @end
