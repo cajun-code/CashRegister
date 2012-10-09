@@ -26,13 +26,7 @@
     
     self.cashTransaction = [[BalanceTransaction alloc] init];
 }
-//15.94 16.00
-//
-//17 16
-//
-//35 35
-//
-//45 50
+
 -(void) testCaseError
 {
     BalanceOutput* balance = [self.cashTransaction calculateBalanceWithPrice:@"150.20" andCachReceived:@"105.23"];
