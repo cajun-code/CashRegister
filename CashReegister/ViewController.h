@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UITextField *txtPurchasePrice;
 @property (weak, nonatomic) IBOutlet UITextField *txtCashGiven;
 @property (weak, nonatomic) IBOutlet UILabel *lblBalance;
