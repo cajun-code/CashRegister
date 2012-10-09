@@ -28,21 +28,10 @@
     });
     return numberHandler;    
 }
-//Returns the currency formatter. Usefull for formatting input in the textfields.
-+(NSNumberFormatter*) getCurrencyFormatter
-{
-    
-    static NSNumberFormatter *format = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        format = [[NSNumberFormatter alloc] init]; 
-        [format setNumberStyle:NSNumberFormatterCurrencyStyle]; 
-    });
-    return format;
-}
+
 //Converts given string to NSDecimalNumber. We make sure we pass valid number as a String.
 +(NSDecimalNumber*) convertToDecimalFromString:(NSString*) inputValue
-{
+{     
     return [[NSDecimalNumber decimalNumberWithString:inputValue] decimalNumberByRoundingAccordingToBehavior:[TransactionUtil roundingHandler]];
 }
 

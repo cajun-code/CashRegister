@@ -11,7 +11,7 @@
 #import "TransactionUtil.h"
 
 @interface BalanceTransaction()
-@property(nonatomic,strong) NSArray* cashDenomination;
+@property(nonatomic,strong) NSMutableArray* cashDenomination;
 @end
 
 @implementation BalanceTransaction
@@ -57,28 +57,28 @@
 {
     BalanceOutput* trBalance = [[BalanceOutput alloc] init];
     //Converting string into NSDecimal Number
-    NSDecimalNumber* purchasePrice = [TransactionUtil convertToDecimalFromString:pPrice];
-    NSDecimalNumber* cReceived = [TransactionUtil convertToDecimalFromString:cachReceived];
+    NSDecimalNumber* price = [TransactionUtil convertToDecimalFromString:pPrice];
+    NSDecimalNumber* cash = [TransactionUtil convertToDecimalFromString:cachReceived];
     
     //checking both purchasePrice and Cash Received are same or not.
-    if([cReceived compare:purchasePrice] == 0)
+    if([cash compare:price] == 0)
         return trBalance;
     
     //Checking whether Cash Received is greater than purchase price.
-    if([cReceived compare:purchasePrice] < 0)
+    if([cash compare:price] < 0)
     {
         trBalance.isError = YES;
         trBalance.balance = [NSDecimalNumber zero];
         return trBalance;
     }
-    //Calculating the change
-    NSDecimalNumber* change = [cReceived decimalNumberBySubtracting:purchasePrice withBehavior:[TransactionUtil roundingHandler]];
-    trBalance.balance = change;
     
+    //Calculating the change
+    NSDecimalNumber* change = [cash decimalNumberBySubtracting:price withBehavior:[TransactionUtil roundingHandler]];
+    trBalance.balance = change;
     NSMutableArray* output = [NSMutableArray array];
     NSDecimalNumber* balance = [change copy];
-    NSArray* copyDenominations = [self.cashDenomination copy];
-
+    NSMutableArray* copyDenominations = [self.cashDenomination copy];
+    
     //Converting the change into Denominations
     for(Denomination* denomination in copyDenominations)
     {
@@ -94,8 +94,10 @@
                 break;
         }
     }
-    trBalance.output = [output copy];
+    trBalance.output = output;
     return trBalance;
 }
+
+
 
 @end

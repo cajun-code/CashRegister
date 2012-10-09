@@ -10,6 +10,7 @@
 #import "BalanceTransaction.h"
 #import "BalanceOutput.h"
 #import "Denomination.h"
+#import "TransactionUtil.h"
 
 @interface ViewController ()<UITextFieldDelegate>
 @property(nonatomic, strong) BalanceTransaction* cashTransaction;
@@ -29,6 +30,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.cashTransaction = [[BalanceTransaction alloc] init];
 }
 
 - (void)viewDidUnload
@@ -51,7 +53,49 @@
 
 - (IBAction)runTransaction:(UIButton *)sender 
 {
-   
+    self.txtDenomination.text = @"";
+    [self.txtPurchasePrice resignFirstResponder];
+    [self.txtCashGiven resignFirstResponder];
+    if(self.txtCashGiven.text.length == 0 || self.txtPurchasePrice.text.length == 0)
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Please Enter" message:@"Please enter both purchase price and cash handed by the customer." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
+        [self.txtPurchasePrice becomeFirstResponder];
+        return;
+    }
+    BalanceOutput* trBalance = [self.cashTransaction calculateBalanceWithPrice:self.txtPurchasePrice.text andCachReceived:self.txtCashGiven.text];
+    if(trBalance.isError)
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Cach Handed" message:@"Please provide enough cash." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];  
+        self.txtDenomination.text = @"ERROR";
+        self.lblBalance.text = @"";
+        return;
+    }
+    if([trBalance.output count] == 0)
+    {
+        [[[UIAlertView alloc] initWithTitle:@"No Balance" message:@"Both purchase price and cash handed are same." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
+        self.lblBalance.text = [NSString stringWithFormat:@" Balance is 0.00" ];
+        self.txtDenomination.text = @"ZERO";
+        
+        return;
+    }
+    [trBalance.output enumerateObjectsUsingBlock:^(Denomination* obj, NSUInteger idx, BOOL *stop) {
+        NSLog(@" Currrency %f count %i",[obj.value floatValue],obj.count);
+    }];
+    if([trBalance.output count] > 1)
+    {
+        [trBalance.output sortUsingComparator:^NSComparisonResult(Denomination *obj1, Denomination *obj2) {
+            return [obj1.title compare :obj2.title ];
+        }];
+    }
+    __block NSMutableString* outPutStr = [NSMutableString string];
+    
+    [trBalance.output enumerateObjectsUsingBlock:^(Denomination* obj, NSUInteger idx, BOOL *stop) {
+        NSLog(@" Currrency %@ count %i",obj.title ,obj.count);
+        [outPutStr appendFormat:[NSString stringWithFormat:@"%@ %i \n",obj.title,obj.count]];
+        //        outPutStr = [outPutStr stringByAppendingFormat:@"%@ %i \n",obj.title,obj.count];
+    }];
+    self.txtDenomination.text = outPutStr;
+    self.lblBalance.text = [NSString stringWithFormat:@" Balance is %.2f", [trBalance.balance floatValue] ];
 }
 
 
@@ -79,12 +123,7 @@
     return YES;    
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)sender
-{
-    
-    
-    
-}
+
 
 
 
