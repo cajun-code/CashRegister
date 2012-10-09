@@ -13,6 +13,10 @@
 @end
 
 @implementation ViewController
+@synthesize txtPurchasePrice;
+@synthesize txtCashGiven;
+@synthesize lblBalance;
+@synthesize txtDenomination;
 
 - (void)viewDidLoad
 {
@@ -22,6 +26,10 @@
 
 - (void)viewDidUnload
 {
+    [self setTxtPurchasePrice:nil];
+    [self setTxtCashGiven:nil];
+    [self setLblBalance:nil];
+    [self setTxtDenomination:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -31,4 +39,6 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (IBAction)runTransaction:(UIButton *)sender {
+}
 @end
