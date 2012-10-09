@@ -36,4 +36,24 @@
     return nil;
 }
 
+-(id) initWithDenomination:(int) countVal andValue : (NSString*) val
+{
+    self = [super init];
+    
+    
+    if(self)
+    {
+        self.count = countVal;
+        self.value =   [TransactionUtil convertToDecimalFromString:val];
+        return self;
+    }
+    
+    return nil;
+}
+
+-(BOOL) isEqual:(Denomination*)other
+{
+    return [self.value compare:other.value] == NSOrderedSame && self.count == other.count;    
+}
+
 @end

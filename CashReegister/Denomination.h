@@ -16,4 +16,6 @@
 
 -(id) initWithTitle:(NSString*) titleVal andValue : (NSString*) val;
 
+-(id) initWithDenomination:(int) countVal andValue : (NSString*) val;
+
 @end
