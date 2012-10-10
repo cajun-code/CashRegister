@@ -123,7 +123,25 @@
     return YES;    
 }
 
-
+- (void)textFieldDidEndEditing:(UITextField *)sender
+{
+    //Update the show/hide labels based upon the inputs.
+       
+    if (sender.text.length == 0)
+        return;
+    
+    
+    //Format to currency.
+    NSNumber *num = [[TransactionUtil getCurrencyFormatter]  numberFromString:sender.text];
+    
+    if(!num)
+        num = [NSNumber numberWithDouble:[sender.text doubleValue]];
+    
+    NSString *str = [[TransactionUtil getCurrencyFormatter] stringFromNumber:num];
+    sender.text = str;
+    
+    
+}
 
 
 

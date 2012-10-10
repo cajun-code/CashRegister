@@ -57,8 +57,8 @@
 {
     BalanceOutput* trBalance = [[BalanceOutput alloc] init];
     //Converting string into NSDecimal Number
-    NSDecimalNumber* price = [TransactionUtil convertToDecimalFromString:pPrice];
-    NSDecimalNumber* cash = [TransactionUtil convertToDecimalFromString:cachReceived];
+    NSDecimalNumber* price = [TransactionUtil convertToDecimalFromStringWithFormat:pPrice];
+    NSDecimalNumber* cash = [TransactionUtil convertToDecimalFromStringWithFormat:cachReceived];
     
     //checking both purchasePrice and Cash Received are same or not.
     if([cash compare:price] == 0)

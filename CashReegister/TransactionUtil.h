@@ -14,5 +14,7 @@
 +(NSDecimalNumberHandler*)roundingHandler;
 
 +(NSDecimalNumber*) convertToDecimalFromString:(NSString*) inputValue;
++(NSDecimalNumber*) convertToDecimalFromStringWithFormat:(NSString*) inputValue;
++(NSNumberFormatter*) getCurrencyFormatter;
 
 @end
