@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *txtDenomination;
 
 - (IBAction)runTransaction:(UIButton *)sender;
+- (IBAction)didBeginEditing:(id)sender;
 
 @end

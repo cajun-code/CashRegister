@@ -99,6 +99,8 @@
 }
 
 
+
+
 #pragma mark - UITextFieldDelegate Methods.
 - (BOOL)textField:(UITextField *)sender shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
@@ -122,7 +124,10 @@
     }
     return YES;    
 }
-
+- (IBAction)didBeginEditing:(id)sender 
+{
+    self.txtCashGiven.text = @"";
+}
 - (void)textFieldDidEndEditing:(UITextField *)sender
 {
     //Update the show/hide labels based upon the inputs.

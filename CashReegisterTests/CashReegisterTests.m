@@ -29,7 +29,7 @@
 
 -(void) testCaseError
 {
-    BalanceOutput* balance = [self.cashTransaction calculateBalanceWithPrice:@"150.20" andCachReceived:@"105.23"];
+    BalanceOutput* balance = [self.cashTransaction calculateBalanceWithPrice:@"$150.20" andCachReceived:@"$105.23"];
     STAssertTrue(balance.isError,@"Error Test case failed.");
 }
 
@@ -50,7 +50,7 @@
 -(void) testTransaction
 {
     //343.67
-    BalanceOutput* balance = [self.cashTransaction calculateBalanceWithPrice:@"656.33" andCachReceived:@"1000"];
+    BalanceOutput* balance = [self.cashTransaction calculateBalanceWithPrice:@"$656.33" andCachReceived:@"$1000"];
     NSDecimalNumber *change1 = [NSDecimalNumber zero];
     for(Denomination* obj in balance.output)
     {
@@ -75,7 +75,7 @@
 -(void) testCaseTransaction1
 {
     //0.06
-    BalanceOutput* balance = [self.cashTransaction calculateBalanceWithPrice:@"15.94" andCachReceived:@"16"];
+    BalanceOutput* balance = [self.cashTransaction calculateBalanceWithPrice:@"$15.94" andCachReceived:@"$16"];
     NSDecimalNumber *change1 = [NSDecimalNumber zero];
     for(Denomination* obj in balance.output)
     {
