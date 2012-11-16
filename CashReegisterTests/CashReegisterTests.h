@@ -7,7 +7,10 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "CRRegisterModel.h"
 
 @interface CashReegisterTests : SenTestCase
+
+@property (nonatomic, strong) CRRegisterModel *crModel;
 
 @end
