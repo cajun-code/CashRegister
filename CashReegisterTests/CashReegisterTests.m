@@ -120,6 +120,11 @@
     [self.crModel setCashCollected:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
     [self.crModel setPurchasePrice:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
     STAssertTrue([[self.crModel computeChangeAsString] isEqualToString:@"ZERO"], nil);
+
+    [self.crModel setCashCollected:[NSDecimalNumber decimalNumberWithString:@"288.92"]];
+    [self.crModel setPurchasePrice:[NSDecimalNumber decimalNumberWithString:@"0.01"]];
+    STAssertTrue([[self.crModel computeChangeAsString] isEqualToString:@"DIME,FIFTY,FIVE,HALF DOLLAR,NICKLE,ONE,ONE HUNDRED,ONE HUNDRED,PENNY,QUARTER,TEN,TWENTY,TWO"], nil);
+    
     
 }
 

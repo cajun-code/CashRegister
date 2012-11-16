@@ -14,7 +14,6 @@
 		4EA04E6D15E5212500021A01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA04E6C15E5212500021A01 /* main.m */; };
 		4EA04E7115E5212500021A01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA04E7015E5212500021A01 /* AppDelegate.m */; };
 		4EA04E7415E5212500021A01 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EA04E7215E5212500021A01 /* MainStoryboard.storyboard */; };
-		4EA04E7715E5212500021A01 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA04E7615E5212500021A01 /* ViewController.m */; };
 		4EA04E7F15E5212500021A01 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E7E15E5212500021A01 /* SenTestingKit.framework */; };
 		4EA04E8015E5212500021A01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6015E5212500021A01 /* UIKit.framework */; };
 		4EA04E8115E5212500021A01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6215E5212500021A01 /* Foundation.framework */; };
@@ -22,6 +21,7 @@
 		4EA04E8C15E5212500021A01 /* CashReegisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA04E8B15E5212500021A01 /* CashReegisterTests.m */; };
 		A20B435116557F5B004A28ED /* CRRegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A20B435016557F5B004A28ED /* CRRegisterModel.m */; };
 		A251221C1655EAF100FCF2C5 /* CurrencyMapping.plist in Resources */ = {isa = PBXBuildFile; fileRef = A251221B1655EAF100FCF2C5 /* CurrencyMapping.plist */; };
+		A2512242165606AB00FCF2C5 /* CRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2512241165606AB00FCF2C5 /* CRViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +46,6 @@
 		4EA04E6F15E5212500021A01 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4EA04E7015E5212500021A01 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4EA04E7315E5212500021A01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		4EA04E7515E5212500021A01 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4EA04E7615E5212500021A01 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4EA04E7D15E5212500021A01 /* CashReegisterTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CashReegisterTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA04E7E15E5212500021A01 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		4EA04E8615E5212500021A01 /* CashReegisterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CashReegisterTests-Info.plist"; sourceTree = "<group>"; };
@@ -57,6 +55,8 @@
 		A20B434F16557F5B004A28ED /* CRRegisterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRRegisterModel.h; sourceTree = "<group>"; };
 		A20B435016557F5B004A28ED /* CRRegisterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRRegisterModel.m; sourceTree = "<group>"; };
 		A251221B1655EAF100FCF2C5 /* CurrencyMapping.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CurrencyMapping.plist; sourceTree = "<group>"; };
+		A2512240165606AB00FCF2C5 /* CRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRViewController.h; sourceTree = "<group>"; };
+		A2512241165606AB00FCF2C5 /* CRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +119,8 @@
 				4EA04E6F15E5212500021A01 /* AppDelegate.h */,
 				4EA04E7015E5212500021A01 /* AppDelegate.m */,
 				4EA04E7215E5212500021A01 /* MainStoryboard.storyboard */,
-				4EA04E7515E5212500021A01 /* ViewController.h */,
-				4EA04E7615E5212500021A01 /* ViewController.m */,
+				A2512240165606AB00FCF2C5 /* CRViewController.h */,
+				A2512241165606AB00FCF2C5 /* CRViewController.m */,
 				A20B434F16557F5B004A28ED /* CRRegisterModel.h */,
 				A20B435016557F5B004A28ED /* CRRegisterModel.m */,
 				4EA04E6715E5212500021A01 /* Supporting Files */,
@@ -269,8 +269,8 @@
 			files = (
 				4EA04E6D15E5212500021A01 /* main.m in Sources */,
 				4EA04E7115E5212500021A01 /* AppDelegate.m in Sources */,
-				4EA04E7715E5212500021A01 /* ViewController.m in Sources */,
 				A20B435116557F5B004A28ED /* CRRegisterModel.m in Sources */,
+				A2512242165606AB00FCF2C5 /* CRViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
