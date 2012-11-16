@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) NSDecimalNumber *cashCollected;
 @property (nonatomic, strong) NSDecimalNumber *purchasePrice;
+@property (nonatomic, strong) NSArray *currencyList;
 
 - (NSDecimalNumber *)computeChange;
 - (NSString *)computeChangeAsString;

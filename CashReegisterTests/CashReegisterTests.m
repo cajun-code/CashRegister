@@ -17,6 +17,13 @@
     [super setUp];
     
     self.crModel = [[CRRegisterModel alloc] init];
+    
+    NSBundle *applicationBundle = [NSBundle mainBundle];
+    NSString *path = [applicationBundle pathForResource:@"CurrencyMapping" ofType:@"plist"];
+    NSArray *arr = [[NSArray alloc] initWithContentsOfFile:path];
+    
+    [self.crModel setCurrencyList:arr];
+
 }
 
 - (void)tearDown
@@ -28,51 +35,50 @@
 
 - (void)testCRRegisterModel
 {
-    NSDecimalNumber *cc;
-    NSDecimalNumber *pp;
+    NSDecimalNumber *dn;
     NSDecimalNumber *chg;
     NSComparisonResult cr;
     
     // test cash collected property roundtrips
     [self.crModel setCashCollected:nil];
-    cc = self.crModel.cashCollected;
-    cr = [cc compare:[NSDecimalNumber decimalNumberWithString:@"0.00"]];
+    dn = self.crModel.cashCollected;
+    cr = [dn compare:[NSDecimalNumber decimalNumberWithString:@"0.00"]];
     STAssertTrue(cr == NSOrderedSame , @"register model should have forced bad input to 0");
     
     [self.crModel setCashCollected:[NSDecimalNumber decimalNumberWithString:@"-0.01"]];
-    cc = self.crModel.cashCollected;
-    cr = [cc compare:[NSDecimalNumber decimalNumberWithString:@"0.00"]];
+    dn = self.crModel.cashCollected;
+    cr = [dn compare:[NSDecimalNumber decimalNumberWithString:@"0.00"]];
     STAssertTrue(cr == NSOrderedSame , @"register model should have forced negative input to 0");
     
     [self.crModel setCashCollected:[NSDecimalNumber decimalNumberWithString:@"0.00"]];
-    cc = self.crModel.cashCollected;
-    cr = [cc compare:[NSDecimalNumber decimalNumberWithString:@"0.00"]];
+    dn = self.crModel.cashCollected;
+    cr = [dn compare:[NSDecimalNumber decimalNumberWithString:@"0.00"]];
     STAssertTrue(cr == NSOrderedSame , @"register model should have cash we collected");
     
     [self.crModel setCashCollected:[NSDecimalNumber decimalNumberWithString:@"0.01"]];
-    cc = self.crModel.cashCollected;
-    cr = [cc compare:[NSDecimalNumber decimalNumberWithString:@"0.01"]];
+    dn = self.crModel.cashCollected;
+    cr = [dn compare:[NSDecimalNumber decimalNumberWithString:@"0.01"]];
     STAssertTrue(cr == NSOrderedSame , @"register model should have cash we collected");
     
     // test purchase price property roundtrips
     [self.crModel setPurchasePrice:nil];
-    cc = self.crModel.purchasePrice;
-    cr = [cc compare:[NSDecimalNumber decimalNumberWithString:@"0.00"]];
+    dn = self.crModel.purchasePrice;
+    cr = [dn compare:[NSDecimalNumber decimalNumberWithString:@"0.00"]];
     STAssertTrue(cr == NSOrderedSame , @"register model should have forced bad input to 0");
     
     [self.crModel setPurchasePrice:[NSDecimalNumber decimalNumberWithString:@"-0.01"]];
-    cc = self.crModel.purchasePrice;
-    cr = [cc compare:[NSDecimalNumber decimalNumberWithString:@"0.00"]];
+    dn = self.crModel.purchasePrice;
+    cr = [dn compare:[NSDecimalNumber decimalNumberWithString:@"0.00"]];
     STAssertTrue(cr == NSOrderedSame , @"register model should have forced negative input to 0");
     
     [self.crModel setPurchasePrice:[NSDecimalNumber decimalNumberWithString:@"0.00"]];
-    cc = self.crModel.purchasePrice;
-    cr = [cc compare:[NSDecimalNumber decimalNumberWithString:@"0.00"]];
+    dn = self.crModel.purchasePrice;
+    cr = [dn compare:[NSDecimalNumber decimalNumberWithString:@"0.00"]];
     STAssertTrue(cr == NSOrderedSame , @"register model should have cash we collected");
     
     [self.crModel setPurchasePrice:[NSDecimalNumber decimalNumberWithString:@"0.01"]];
-    cc = self.crModel.purchasePrice;
-    cr = [cc compare:[NSDecimalNumber decimalNumberWithString:@"0.01"]];
+    dn = self.crModel.purchasePrice;
+    cr = [dn compare:[NSDecimalNumber decimalNumberWithString:@"0.01"]];
     STAssertTrue(cr == NSOrderedSame , @"register model should have cash we collected");
 
     // test price comparisons
@@ -99,7 +105,21 @@
     NSLog(@"change string %@", [self.crModel computeChangeAsString]);
     STAssertTrue([[self.crModel computeChangeAsString] isEqualToString:@"ERROR"], @"should receive ERROR string if did not collect enough cash");
     
+    [self.crModel setCashCollected:[NSDecimalNumber decimalNumberWithString:@"1.01"]];
+    [self.crModel setPurchasePrice:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
+    STAssertTrue([[self.crModel computeChangeAsString] isEqualToString:@"PENNY"], nil);
+
+    [self.crModel setCashCollected:[NSDecimalNumber decimalNumberWithString:@"2.00"]];
+    [self.crModel setPurchasePrice:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
+    STAssertTrue([[self.crModel computeChangeAsString] isEqualToString:@"ONE"], nil);
+
+    [self.crModel setCashCollected:[NSDecimalNumber decimalNumberWithString:@"3.54"]];
+    [self.crModel setPurchasePrice:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
+    STAssertTrue([[self.crModel computeChangeAsString] isEqualToString:@"HALF DOLLAR,PENNY,PENNY,PENNY,PENNY,TWO"], nil);
     
+    [self.crModel setCashCollected:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
+    [self.crModel setPurchasePrice:[NSDecimalNumber decimalNumberWithString:@"1.00"]];
+    STAssertTrue([[self.crModel computeChangeAsString] isEqualToString:@"ZERO"], nil);
     
 }
 

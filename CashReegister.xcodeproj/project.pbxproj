@@ -21,6 +21,7 @@
 		4EA04E8915E5212500021A01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EA04E8715E5212500021A01 /* InfoPlist.strings */; };
 		4EA04E8C15E5212500021A01 /* CashReegisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA04E8B15E5212500021A01 /* CashReegisterTests.m */; };
 		A20B435116557F5B004A28ED /* CRRegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A20B435016557F5B004A28ED /* CRRegisterModel.m */; };
+		A251221C1655EAF100FCF2C5 /* CurrencyMapping.plist in Resources */ = {isa = PBXBuildFile; fileRef = A251221B1655EAF100FCF2C5 /* CurrencyMapping.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		4EA04E8B15E5212500021A01 /* CashReegisterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashReegisterTests.m; sourceTree = "<group>"; };
 		A20B434F16557F5B004A28ED /* CRRegisterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRRegisterModel.h; sourceTree = "<group>"; };
 		A20B435016557F5B004A28ED /* CRRegisterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRRegisterModel.m; sourceTree = "<group>"; };
+		A251221B1655EAF100FCF2C5 /* CurrencyMapping.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CurrencyMapping.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				4EA04E6915E5212500021A01 /* InfoPlist.strings */,
 				4EA04E6C15E5212500021A01 /* main.m */,
 				4EA04E6E15E5212500021A01 /* CashReegister-Prefix.pch */,
+				A251221B1655EAF100FCF2C5 /* CurrencyMapping.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			files = (
 				4EA04E6B15E5212500021A01 /* InfoPlist.strings in Resources */,
 				4EA04E7415E5212500021A01 /* MainStoryboard.storyboard in Resources */,
+				A251221C1655EAF100FCF2C5 /* CurrencyMapping.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
