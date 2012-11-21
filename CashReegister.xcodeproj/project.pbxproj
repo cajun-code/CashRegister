@@ -434,6 +434,7 @@
 				4EA04E9115E5212500021A01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EA04E9215E5212500021A01 /* Build configuration list for PBXNativeTarget "CashReegisterTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +443,7 @@
 				4EA04E9415E5212500021A01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
