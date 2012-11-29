@@ -25,6 +25,7 @@
     [self setProductPrice:nil];
     [self setCashRecived:nil];
     
+    [self setChangeLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
