@@ -10,23 +10,6 @@
 
 @interface ViewController ()
 
-// model
-@property (nonatomic) float purchasePrice;
-@property (nonatomic) float paymentAmount;
-@property (nonatomic, strong) NSMutableArray *changeArray;
-@property (nonatomic, strong) NSMutableDictionary *currencyDictionary;
-
-// ui
-@property (nonatomic, weak) IBOutlet UITextField *purchasePriceTextField;
-@property (nonatomic, weak) IBOutlet UITextField *paymentAmountTextField;
-@property (nonatomic, weak) IBOutlet UIButton *calculateButton;
-@property (nonatomic, weak) IBOutlet UILabel *resultLabel;
-
-- (NSString *)validatePaymentAmount;
-- (BOOL)updateButtonStatusForPurchasePrice:(float)price andPaymentAmount:(float)payment;
-- (void)setupCurrencies;
-- (NSString *)findLargestCurrencyForAmount:(float)amount;
-
 @end
 
 @implementation ViewController
@@ -63,6 +46,7 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+#pragma mark - === VALIDATION AND CALCULATIONS === -
 - (NSString *)validatePaymentAmount
 {
     NSLog(@"validatePaymentAmount");
@@ -155,6 +139,24 @@
     }
 }
 
+- (void)setupCurrencies
+{
+    currencyDictionary = [[NSMutableDictionary alloc] init];
+    
+    [currencyDictionary setValue:[NSNumber numberWithFloat:0.01f] forKey:@"PENNY"];
+    [currencyDictionary setValue:[NSNumber numberWithFloat:0.05f] forKey:@"NICKEL"];
+    [currencyDictionary setValue:[NSNumber numberWithFloat:0.10f] forKey:@"DIME"];
+    [currencyDictionary setValue:[NSNumber numberWithFloat:0.25f] forKey:@"QUARTER"];
+    [currencyDictionary setValue:[NSNumber numberWithFloat:0.50f] forKey:@"HALF DOLLAR"];
+    [currencyDictionary setValue:[NSNumber numberWithFloat:1.00f] forKey:@"ONE"];
+    [currencyDictionary setValue:[NSNumber numberWithFloat:2.00f] forKey:@"TWO"];
+    [currencyDictionary setValue:[NSNumber numberWithFloat:5.00f] forKey:@"FIVE"];
+    [currencyDictionary setValue:[NSNumber numberWithFloat:10.00f] forKey:@"TEN"];
+    [currencyDictionary setValue:[NSNumber numberWithFloat:20.00f] forKey:@"TWENTY"];
+    [currencyDictionary setValue:[NSNumber numberWithFloat:50.00f] forKey:@"FIFTY"];
+    [currencyDictionary setValue:[NSNumber numberWithFloat:100.00f] forKey:@"ONE HUNDRED"];
+}
+
 #pragma mark - === TEXT FIELD DELEGATE METHODS === -
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
@@ -204,23 +206,7 @@
     return NO;
 }
 
-- (void)setupCurrencies
-{
-    currencyDictionary = [[NSMutableDictionary alloc] init];
-
-    [currencyDictionary setValue:[NSNumber numberWithFloat:0.01f] forKey:@"PENNY"];
-    [currencyDictionary setValue:[NSNumber numberWithFloat:0.05f] forKey:@"NICKEL"];
-    [currencyDictionary setValue:[NSNumber numberWithFloat:0.10f] forKey:@"DIME"];
-    [currencyDictionary setValue:[NSNumber numberWithFloat:0.25f] forKey:@"QUARTER"];
-    [currencyDictionary setValue:[NSNumber numberWithFloat:0.50f] forKey:@"HALF DOLLAR"];
-    [currencyDictionary setValue:[NSNumber numberWithFloat:1.00f] forKey:@"ONE"];
-    [currencyDictionary setValue:[NSNumber numberWithFloat:2.00f] forKey:@"TWO"];
-    [currencyDictionary setValue:[NSNumber numberWithFloat:5.00f] forKey:@"FIVE"];
-    [currencyDictionary setValue:[NSNumber numberWithFloat:10.00f] forKey:@"TEN"];
-    [currencyDictionary setValue:[NSNumber numberWithFloat:20.00f] forKey:@"TWENTY"];
-    [currencyDictionary setValue:[NSNumber numberWithFloat:50.00f] forKey:@"FIFTY"];
-    [currencyDictionary setValue:[NSNumber numberWithFloat:100.00f] forKey:@"ONE HUNDRED"];
-}
+#pragma mark - === UTILITY METHODS === -
 
 - (NSString *)findLargestCurrencyForAmount:(float)amount
 {
@@ -231,13 +217,12 @@
     for (int i=0; i < [sortedValuesArray count]; i++)
     {
         float currencyAmount = [[currencyDictionary valueForKey:[sortedValuesArray objectAtIndex:i]] floatValue];
-        NSLog(@"%.2f", amount - currencyAmount);
+        //NSLog(@"%.2f", amount - currencyAmount);
         
         // account for rounding error potential
-        int currencyAmountInteger = currencyAmount * 100;
-        int amountInteger = amount * 100;
+        amount = roundf(amount * 100.0)/100;
         
-        if (amountInteger - currencyAmountInteger >= 0)
+        if (amount - currencyAmount >= 0)
         {
             return [sortedValuesArray objectAtIndex:i];
         }
