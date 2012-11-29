@@ -13,37 +13,43 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="cash_register.jpg" id="3iF-1n-3tN">
-                                <rect key="frame" x="78" y="25" width="164" height="167"/>
+                                <rect key="frame" x="78" y="25" width="149" height="132"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Purchase Price:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UK5-dJ-WIc">
-                                <rect key="frame" x="43" y="212" width="120" height="21"/>
+                                <rect key="frame" x="43" y="182" width="120" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Payment Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S7W-JO-BZ5">
-                                <rect key="frame" x="43" y="245" width="136" height="21"/>
+                                <rect key="frame" x="43" y="220" width="136" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="tqo-By-tUS">
-                                <rect key="frame" x="198" y="208" width="97" height="30"/>
+                                <rect key="frame" x="198" y="178" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="cDa-4r-eyq"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="LCd-sI-KY0">
-                                <rect key="frame" x="198" y="241" width="97" height="30"/>
+                                <rect key="frame" x="198" y="216" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="WY0-6C-hqu"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="y1Y-hi-6bA">
-                                <rect key="frame" x="86" y="288" width="150" height="44"/>
+                                <rect key="frame" x="85" y="264" width="150" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Calculate Change">
@@ -53,9 +59,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="distributeChange:" destination="2" eventType="touchUpInside" id="IeY-mV-fFd"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dsE-iF-vGm">
-                                <rect key="frame" x="43" y="384" width="252" height="41"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dsE-iF-vGm">
+                                <rect key="frame" x="34" y="333" width="252" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -64,6 +73,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="paymentAmountTextField" destination="LCd-sI-KY0" id="lIc-La-wQX"/>
+                        <outlet property="purchasePriceTextField" destination="tqo-By-tUS" id="nSb-lk-PUV"/>
+                        <outlet property="resultLabel" destination="dsE-iF-vGm" id="lgE-yz-grd"/>
+                        <outlet property="view" destination="3" id="vUF-sd-02q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,6 +90,12 @@
     <classes>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="distributeChange:"/>
+                <relationship kind="outlet" name="paymentAmountTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="purchasePriceTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

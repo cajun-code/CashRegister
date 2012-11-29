@@ -10,12 +10,17 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) NSMutableArray *cashRegisterCurrencyArray;
+// model
 @property (nonatomic) float purchasePrice;
 @property (nonatomic) float paymentAmount;
+@property (nonatomic, strong) NSMutableArray *cashRegisterCurrencyArray;
+
+// ui
+@property (nonatomic, weak) IBOutlet UITextField *purchasePriceTextField;
+@property (nonatomic, weak) IBOutlet UITextField *paymentAmountTextField;
+@property (nonatomic, weak) IBOutlet UILabel *resultLabel;
 
 - (NSString *)validatePaymentAmount;
-- (void)distributeChange;
 
 @end
 
@@ -29,6 +34,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[self purchasePriceTextField] setTag:0];
+    [[self paymentAmountTextField] setTag:1];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -49,9 +56,19 @@
     return @"";
 }
 
-- (void)distributeChange
+- (IBAction)distributeChange:(id)sender
 {
     NSLog(@"distributeChange");
+    [[self view] endEditing:YES];
+    [[self resultLabel] setTextAlignment:NSTextAlignmentCenter];
+    [[self resultLabel] setText:@"wiring up"];
+}
+
+#pragma mark - === TEXT FIELD DELEGATE METHODS === -
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    [[self resultLabel] setText:@""];
+    return YES;
 }
 
 @end

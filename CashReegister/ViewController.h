@@ -21,6 +21,8 @@
 #define FIFTY_DOLLARS 50.00f
 #define ONE_HUNDRED_DOLLARS 100.00f
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>
+
+- (IBAction)distributeChange:(id)sender;
 
 @end
