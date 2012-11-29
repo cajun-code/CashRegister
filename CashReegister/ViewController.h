@@ -11,5 +11,6 @@
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *productPrice;
 @property (weak, nonatomic) IBOutlet UITextField *cashRecived;
+- (IBAction)getChange:(id)sender;
 
 @end

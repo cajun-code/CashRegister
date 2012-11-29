@@ -24,6 +24,7 @@
 {
     [self setProductPrice:nil];
     [self setCashRecived:nil];
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -33,4 +34,6 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (IBAction)getChange:(id)sender {
+}
 @end
