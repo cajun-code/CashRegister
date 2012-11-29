@@ -22,6 +22,7 @@
 
 - (void)viewDidUnload
 {
+    [self setProductPrice:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
