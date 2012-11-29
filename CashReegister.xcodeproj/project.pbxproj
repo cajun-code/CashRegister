@@ -20,6 +20,7 @@
 		4EA04E8115E5212500021A01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6215E5212500021A01 /* Foundation.framework */; };
 		4EA04E8915E5212500021A01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EA04E8715E5212500021A01 /* InfoPlist.strings */; };
 		4EA04E8C15E5212500021A01 /* CashReegisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA04E8B15E5212500021A01 /* CashReegisterTests.m */; };
+		D94D2D6C1666F23C005DA16F /* cash_register.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D94D2D6B1666F23C005DA16F /* cash_register.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		4EA04E8815E5212500021A01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4EA04E8A15E5212500021A01 /* CashReegisterTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashReegisterTests.h; sourceTree = "<group>"; };
 		4EA04E8B15E5212500021A01 /* CashReegisterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashReegisterTests.m; sourceTree = "<group>"; };
+		D94D2D6B1666F23C005DA16F /* cash_register.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cash_register.jpg; path = CashReegister/resource/images/cash_register.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				4EA04E7215E5212500021A01 /* MainStoryboard.storyboard */,
 				4EA04E7515E5212500021A01 /* ViewController.h */,
 				4EA04E7615E5212500021A01 /* ViewController.m */,
+				D94D2D681666F21E005DA16F /* resource */,
 				4EA04E6715E5212500021A01 /* Supporting Files */,
 			);
 			path = CashReegister;
@@ -149,6 +152,23 @@
 				4EA04E8715E5212500021A01 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D94D2D681666F21E005DA16F /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				D94D2D6A1666F228005DA16F /* images */,
+			);
+			name = resource;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D94D2D6A1666F228005DA16F /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D94D2D6B1666F23C005DA16F /* cash_register.jpg */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +244,7 @@
 			files = (
 				4EA04E6B15E5212500021A01 /* InfoPlist.strings in Resources */,
 				4EA04E7415E5212500021A01 /* MainStoryboard.storyboard in Resources */,
+				D94D2D6C1666F23C005DA16F /* cash_register.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +455,7 @@
 				4EA04E9115E5212500021A01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EA04E9215E5212500021A01 /* Build configuration list for PBXNativeTarget "CashReegisterTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +464,7 @@
 				4EA04E9415E5212500021A01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
