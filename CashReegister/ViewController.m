@@ -165,6 +165,11 @@
 [output sortUsingSelector:@selector(compare:)];
 
 
+NSString * result = [output componentsJoinedByString:@","];
+self.changeLabel.text=result;
+
+
+
 
 }
 @end
