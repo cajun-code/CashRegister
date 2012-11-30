@@ -40,5 +40,7 @@
 }
 
 - (IBAction)getChange:(id)sender {
+    [self.productPrice resignFirstResponder];
+    [self.cashRecived resignFirstResponder];
 }
 @end
