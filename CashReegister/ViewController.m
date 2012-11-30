@@ -160,9 +160,11 @@
                 [output addObject:@"PENNY"];
             }
         }
-        
-        
+    
     }
+[output sortUsingSelector:@selector(compare:)];
+
+
 
 }
 @end
