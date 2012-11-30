@@ -19,6 +19,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
+- (IBAction)backgroundTapped:(id)sender {
+    [self.productPrice resignFirstResponder];
+    [self.cashRecived resignFirstResponder];
+}
 
 - (void)viewDidUnload
 {

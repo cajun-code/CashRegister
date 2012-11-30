@@ -8,7 +8,7 @@
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3">
+                    <view key="view" contentMode="scaleToFill" id="3" customClass="UIControl">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -23,7 +23,7 @@
                                 <rect key="frame" x="166" y="37" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Cash Recived" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IE4-p4-nxe">
                                 <rect key="frame" x="39" y="81" width="106" height="21"/>
@@ -36,7 +36,7 @@
                                 <rect key="frame" x="166" y="78" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wOL-hf-edw">
                                 <rect key="frame" x="106" y="132" width="109" height="44"/>
@@ -70,6 +70,10 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="backgroundTapped:" destination="2" eventType="touchDown" id="2u7-8W-fdN"/>
+                            <action selector="backgroundTapped:" destination="2" eventType="valueChanged" id="8fF-Hk-Biq"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="cashRecived" destination="GWs-II-e1i" id="Spz-NC-nSe"/>
@@ -85,6 +89,7 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
+                <relationship kind="action" name="backgroundTapped:"/>
                 <relationship kind="action" name="getChange:"/>
                 <relationship kind="outlet" name="cashRecived" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="changeLabel" candidateClass="UILabel"/>
