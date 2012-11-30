@@ -42,5 +42,11 @@
 - (IBAction)getChange:(id)sender {
     [self.productPrice resignFirstResponder];
     [self.cashRecived resignFirstResponder];
+    
+    double cR=[self.cashRecived.text doubleValue];
+    double pP=[self.productPrice.text doubleValue];
+    
+    NSMutableArray *output = [[NSMutableArray alloc] init];
+
 }
 @end
