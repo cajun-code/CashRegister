@@ -1,24 +1,102 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1906" systemVersion="11A511" targetRuntime="iOS.CocoaTouch" nextObjectID="6" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="902"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
         <scene sceneID="5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3">
+                    <view key="view" contentMode="scaleToFill" id="3" customClass="UIControl">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Purchase Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eXf-hx-kNo">
+                                <rect key="frame" x="34" y="41" width="116" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="QAU-Ts-yd4">
+                                <rect key="frame" x="166" y="37" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Cash Recived" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IE4-p4-nxe">
+                                <rect key="frame" x="39" y="81" width="106" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="GWs-II-e1i">
+                                <rect key="frame" x="166" y="78" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wOL-hf-edw">
+                                <rect key="frame" x="106" y="132" width="109" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Get Change">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getChange:" destination="2" eventType="touchUpInside" id="sns-M8-xqK"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Money Returned :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r56-mF-Nwp">
+                                <rect key="frame" x="39" y="202" width="136" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="your change" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vL1-gD-Er6">
+                                <rect key="frame" x="20" y="247" width="280" height="183"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="backgroundTapped:" destination="2" eventType="touchDown" id="2u7-8W-fdN"/>
+                            <action selector="backgroundTapped:" destination="2" eventType="valueChanged" id="8fF-Hk-Biq"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="cashRecived" destination="GWs-II-e1i" id="Spz-NC-nSe"/>
+                        <outlet property="changeLabel" destination="vL1-gD-Er6" id="nfT-MH-mtD"/>
+                        <outlet property="productPrice" destination="QAU-Ts-yd4" id="fg7-2U-0xk"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <classes>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backgroundTapped:"/>
+                <relationship kind="action" name="getChange:"/>
+                <relationship kind="outlet" name="cashRecived" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="changeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="productPrice" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

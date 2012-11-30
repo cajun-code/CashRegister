@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *productPrice;
+@property (weak, nonatomic) IBOutlet UITextField *cashRecived;
+@property (weak, nonatomic) IBOutlet UILabel *changeLabel;
+- (IBAction)getChange:(id)sender;
 
 @end
