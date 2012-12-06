@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad
 {
+    //if you can see this, initial commit worked
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
