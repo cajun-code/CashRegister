@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Currency.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *txtPrice;
+@property (weak, nonatomic) IBOutlet UITextField *txtCash;
+- (IBAction)btnChange:(id)sender;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrChange;
+@property(strong,nonatomic)NSArray *arrCurrency;
+@property(assign,nonatomic)int scrollHeight;
 
 @end

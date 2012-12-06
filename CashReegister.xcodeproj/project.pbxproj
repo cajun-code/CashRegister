@@ -20,6 +20,7 @@
 		4EA04E8115E5212500021A01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA04E6215E5212500021A01 /* Foundation.framework */; };
 		4EA04E8915E5212500021A01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EA04E8715E5212500021A01 /* InfoPlist.strings */; };
 		4EA04E8C15E5212500021A01 /* CashReegisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA04E8B15E5212500021A01 /* CashReegisterTests.m */; };
+		5811C1EB1670F43F00BF93DB /* Currency.m in Sources */ = {isa = PBXBuildFile; fileRef = 5811C1EA1670F43F00BF93DB /* Currency.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		4EA04E8815E5212500021A01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4EA04E8A15E5212500021A01 /* CashReegisterTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CashReegisterTests.h; sourceTree = "<group>"; };
 		4EA04E8B15E5212500021A01 /* CashReegisterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CashReegisterTests.m; sourceTree = "<group>"; };
+		5811C1E91670F43F00BF93DB /* Currency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Currency.h; sourceTree = "<group>"; };
+		5811C1EA1670F43F00BF93DB /* Currency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Currency.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 				4EA04E7215E5212500021A01 /* MainStoryboard.storyboard */,
 				4EA04E7515E5212500021A01 /* ViewController.h */,
 				4EA04E7615E5212500021A01 /* ViewController.m */,
+				5811C1E91670F43F00BF93DB /* Currency.h */,
+				5811C1EA1670F43F00BF93DB /* Currency.m */,
 				4EA04E6715E5212500021A01 /* Supporting Files */,
 			);
 			path = CashReegister;
@@ -261,6 +266,7 @@
 				4EA04E6D15E5212500021A01 /* main.m in Sources */,
 				4EA04E7115E5212500021A01 /* AppDelegate.m in Sources */,
 				4EA04E7715E5212500021A01 /* ViewController.m in Sources */,
+				5811C1EB1670F43F00BF93DB /* Currency.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +440,7 @@
 				4EA04E9115E5212500021A01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EA04E9215E5212500021A01 /* Build configuration list for PBXNativeTarget "CashReegisterTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +449,7 @@
 				4EA04E9415E5212500021A01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
