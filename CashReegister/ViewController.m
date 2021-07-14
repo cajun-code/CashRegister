@@ -10,6 +10,8 @@
 
 @interface ViewController ()
 
+// add a paintingView here.
+
 @end
 
 @implementation ViewController
